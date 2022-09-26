@@ -16,5 +16,9 @@ public class TeamService {
         return 32;
     }
 
+    public void addNewTeam(Team team) {
+        System.out.println(team);
+    }
+
 
 }

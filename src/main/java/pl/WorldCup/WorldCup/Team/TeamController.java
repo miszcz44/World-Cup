@@ -1,9 +1,7 @@
 package pl.WorldCup.WorldCup.Team;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/teams")
@@ -20,4 +18,10 @@ public class TeamController {
     public Integer getNumberOfTeams() {
         return teamService.getNumberOfTeams();
     }
+
+    @PostMapping
+    public void addNewTeam(@RequestBody Team team) {
+        teamService.addNewTeam(team);
+    }
+
 }
