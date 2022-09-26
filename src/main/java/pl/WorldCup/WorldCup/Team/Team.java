@@ -9,8 +9,8 @@ import javax.persistence.*;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
-@Entity
-@Table
+@Entity(name = "Team")
+@Table(name = "team")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,17 +26,41 @@ public class Team {
             strategy = SEQUENCE,
             generator = "team_sequence"
     )
-    private Long id;
-    private String country;
-    private Integer points;
-    private Integer goalsScored;
-    private Integer goalsSuffered;
+    @Column(
+            name = "team_id",
+            updatable = false
+    )
+    private Long teamId;
+    @Column(
+            name = "team_country",
+            nullable = false,
+            columnDefinition = "text"
+    )
+    private String teamCountry;
+    @Column(
+            name = "team_points",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
+    private Integer teamPoints;
+    @Column(
+            name = "team_goals_scored",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
+    private Integer teamGoalsScored;
+    @Column(
+            name = "team_goals_suffered",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
+    private Integer teamGoalsSuffered;
     @ManyToOne(
             cascade = CascadeType.ALL
     )
     @JoinColumn(
             name = "group_id",
-            referencedColumnName = "id"
+            referencedColumnName = "groupId"
     )
     private GroupPhase group;
 }

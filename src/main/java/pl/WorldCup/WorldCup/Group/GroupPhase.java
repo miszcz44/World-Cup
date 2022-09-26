@@ -25,6 +25,6 @@ public class GroupPhase {
             strategy = SEQUENCE,
             generator = "group_sequence"
     )
-    private Long id;
-    private String name;
+    private Long groupId;
+    private String groupName;
 }
