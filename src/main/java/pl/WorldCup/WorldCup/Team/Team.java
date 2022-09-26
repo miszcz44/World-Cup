@@ -3,6 +3,7 @@ package pl.WorldCup.WorldCup.Team;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.WorldCup.WorldCup.Group.GroupPhase;
 
 import javax.persistence.*;
 
@@ -28,6 +29,14 @@ public class Team {
     private Long id;
     private String country;
     private Integer points;
-
-
+    private Integer goalsScored;
+    private Integer goalsSuffered;
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "group_id",
+            referencedColumnName = "id"
+    )
+    private GroupPhase group;
 }
