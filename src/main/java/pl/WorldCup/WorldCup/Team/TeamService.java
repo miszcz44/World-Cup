@@ -3,6 +3,8 @@ package pl.WorldCup.WorldCup.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class TeamService {
     private final TeamRepository teamRepository;
@@ -17,7 +19,18 @@ public class TeamService {
     }
 
     public void addNewTeam(Team team) {
-        System.out.println(team);
+        teamRepository.save(team);
+    }
+
+    public Team findTeamByCountry(String country) {
+        Team team = teamRepository.findTeamByTeamCountry(country);
+        return team;
+    }
+
+    @Transactional
+    public void updateTeamPoints(String country, Integer teamPoints) {
+        Team team = findTeamByCountry(country);
+        team.setTeamPoints(team.getTeamPoints() + teamPoints);
     }
 
 

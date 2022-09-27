@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/teams")
+@RequestMapping(path = "/teams")
 public class TeamController {
 
     private final TeamService teamService;
@@ -22,6 +22,10 @@ public class TeamController {
     @PostMapping
     public void addNewTeam(@RequestBody Team team) {
         teamService.addNewTeam(team);
+    }
+    @PutMapping
+    public void updateTeamPoints(String teamCountry, @RequestParam(required = false) Integer teamPoints) {
+        teamService.updateTeamPoints(teamCountry, teamPoints);
     }
 
 }
