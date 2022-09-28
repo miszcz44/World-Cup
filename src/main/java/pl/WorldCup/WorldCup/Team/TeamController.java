@@ -3,6 +3,8 @@ package pl.WorldCup.WorldCup.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/teams")
 public class TeamController {
@@ -20,8 +22,8 @@ public class TeamController {
     }
 
     @PostMapping
-    public void addNewTeam(@RequestBody Team team) {
-        teamService.addNewTeam(team);
+    public void addNewTeam(@RequestBody List<Team> teams) {
+        teamService.addNewTeams(teams);
     }
     @PutMapping
     public void updateTeamPoints(String teamCountry, @RequestParam(required = false) Integer teamPoints) {

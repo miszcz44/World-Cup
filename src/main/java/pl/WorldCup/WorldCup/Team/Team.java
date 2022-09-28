@@ -55,12 +55,7 @@ public class Team {
             columnDefinition = "integer default 0"
     )
     private Integer teamGoalsSuffered;
-    @ManyToOne(
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(
-            name = "group_id",
-            referencedColumnName = "groupId"
-    )
+    @ManyToOne
+    @JoinColumn(name = "group_id")
     private GroupPhase group;
 }

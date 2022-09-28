@@ -2,8 +2,10 @@ package pl.WorldCup.WorldCup.Team;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.WorldCup.WorldCup.Group.GroupPhase;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class TeamService {
@@ -18,8 +20,12 @@ public class TeamService {
         return 32;
     }
 
-    public void addNewTeam(Team team) {
-        teamRepository.save(team);
+    public void addNewTeams(List<Team> teams) {
+        GroupPhase group = new GroupPhase();
+        for(Team team: teams){
+            team.setGroup(group);
+        }
+        teamRepository.saveAll(teams);
     }
 
     public Team findTeamByCountry(String country) {
