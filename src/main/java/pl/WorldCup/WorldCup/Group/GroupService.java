@@ -17,4 +17,14 @@ public class GroupService {
         groupRepository.save(group);
     }
 
+    public GroupPhase findGroupByGroupName(String groupName) {
+        GroupPhase groupPhase = groupRepository.findGroupByGroupName(groupName);
+        return groupPhase;
+    }
+
+    public Long getGroupIdByGroupName(String groupName) {
+        GroupPhase group = groupRepository.findGroupByGroupName(groupName);
+        return group.getGroupId();
+    }
+
 }

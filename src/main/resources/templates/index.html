@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,36 +15,17 @@
     <table class="d-inline w-25 table mx-5 py-5">
         <thead>
         <tr>
-            <th scope="col"></th>
             <th scope="col">Kraj</th>
             <th scope="col">Bramki</th>
             <th scope="col">Punkty</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+
+        <tr th:each="team: ${teams}">
+            <td th:text="${team.teamCountry}" />
+            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+            <td th:text="${team.teamPoints}" />
         </tr>
         </tbody>
     </table>
@@ -161,7 +142,7 @@
     <table class="d-inline w-25 table mx-5 py-5">
         <tbody>
         <tr>
-            <th scope="row">1</th>
+            <th scope="row"></th>
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>

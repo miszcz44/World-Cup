@@ -32,17 +32,20 @@ public class GroupPhase {
     private Long groupId;
     @Column(
             name = "group_name",
-            nullable = false,
             columnDefinition = "text"
     )
     private String groupName;
-    @OneToMany(
-            mappedBy = "group",
+    @ManyToMany(
             cascade = CascadeType.ALL
     )
+    @JoinTable(
+            name = "group_team_mapping",
+            joinColumns = @JoinColumn(
+                    name = "group_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "team_id"
+            )
+    )
     private List<Team> groupTeams = new ArrayList<>();
-
-    public GroupPhase(String a) {
-        this.groupName = a;
-    }
 }
