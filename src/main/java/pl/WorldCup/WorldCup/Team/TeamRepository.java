@@ -11,8 +11,10 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
 
     public Team findTeamByTeamCountry(String country);
 
-    @Query(value = "SELECT team_id FROM group_team_mapping WHERE group_id = ?1")
+    @Query(value = "SELECT team_id FROM group_team_mapping WHERE group_id = ?1",
+            nativeQuery = true
+    )
     public List<Long> getTeamIdsByGroupId(Long groupId);
 
-    public Team findTeamById(Long teamId);
+    public Team findTeamByTeamId(Long teamId);
 }

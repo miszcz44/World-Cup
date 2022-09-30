@@ -15,7 +15,14 @@ public class TeamController {
     @GetMapping({"/list", "/"})
     public ModelAndView getAllTeams(){
         ModelAndView mav = new ModelAndView("index");
-        mav.addObject("teams", teamService.getTeamsFromGivenGroup("a"));
+        mav.addObject("groupATeams", teamService.getTeamsFromGivenGroup("a"));
+        mav.addObject("groupBTeams", teamService.getTeamsFromGivenGroup("b"));
+        mav.addObject("groupCTeams", teamService.getTeamsFromGivenGroup("c"));
+        mav.addObject("groupDTeams", teamService.getTeamsFromGivenGroup("d"));
+        mav.addObject("groupETeams", teamService.getTeamsFromGivenGroup("e"));
+        mav.addObject("groupFTeams", teamService.getTeamsFromGivenGroup("f"));
+        mav.addObject("groupGTeams", teamService.getTeamsFromGivenGroup("g"));
+        mav.addObject("groupHTeams", teamService.getTeamsFromGivenGroup("h"));
         return mav;
     }
 

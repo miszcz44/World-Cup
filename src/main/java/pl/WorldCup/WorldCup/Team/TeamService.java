@@ -12,10 +12,12 @@ import java.util.List;
 @Service
 public class TeamService {
     private final TeamRepository teamRepository;
+    private final GroupService groupService;
 
     @Autowired
-    public TeamService(TeamRepository teamRepository) {
+    public TeamService(TeamRepository teamRepository, GroupService groupService) {
         this.teamRepository = teamRepository;
+        this.groupService = groupService;
     }
 
     public Integer getNumberOfTeams() {
@@ -41,17 +43,16 @@ public class TeamService {
     }
 
     public Team getTeamById(Long teamId) {
-        Team team = teamRepository.findTeamById(teamId);
+        Team team = teamRepository.findTeamByTeamId(teamId);
         return team;
     }
 
     public List<Team> getTeamsFromGivenGroup(String groupName) {
-        GroupService groupService = null;
         GroupPhase group = groupService.findGroupByGroupName(groupName);
         List<Long> teamIds = teamRepository.getTeamIdsByGroupId(group.getGroupId());
         List<Team> teams = new ArrayList<>();
         for(Long id : teamIds) {
-            teams.add(teamRepository.findTeamById(id));
+            teams.add(teamRepository.findTeamByTeamId(id));
         }
         return teams;
     }

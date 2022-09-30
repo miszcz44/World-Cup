@@ -12,24 +12,27 @@
 </head>
 <body>
 <div class="my-5">
-    <table class="d-inline w-25 table mx-5 py-5">
+    <table class="d-inline w-25 table mx-4 py-5">
+        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa A</caption></b>
         <thead>
         <tr>
+            <th scope="col"></th>
             <th scope="col">Kraj</th>
             <th scope="col">Bramki</th>
             <th scope="col">Punkty</th>
         </tr>
         </thead>
         <tbody>
-
-        <tr th:each="team: ${teams}">
+        <tr th:each="team, iterator: ${groupATeams}">
+            <td th:text="${iterator.index+1}" />
             <td th:text="${team.teamCountry}" />
             <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
             <td th:text="${team.teamPoints}" />
         </tr>
         </tbody>
     </table>
-    <table class="d-inline w-25 table mx-5 py-5">
+    <table class="d-inline w-25 table mx-4 py-5">
+        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa B</caption></b>
         <thead>
         <tr>
             <th scope="col"></th>
@@ -39,33 +42,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+        <tr th:each="team, iterator: ${groupBTeams}">
+            <td th:text="${iterator.index+1}" />
+            <td th:text="${team.teamCountry}" />
+            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+            <td th:text="${team.teamPoints}" />
         </tr>
         </tbody>
     </table>
-    <table class="d-inline w-25 table mx-5 py-5">
+    <table class="d-inline w-25 table mx-4 py-5">
+        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa C</caption></b>
         <thead>
         <tr>
             <th scope="col"></th>
@@ -75,33 +61,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+        <tr th:each="team, iterator: ${groupCTeams}">
+            <td th:text="${iterator.index+1}" />
+            <td th:text="${team.teamCountry}" />
+            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+            <td th:text="${team.teamPoints}" />
         </tr>
         </tbody>
     </table>
-    <table class="d-inline w-25 table mx-5 py-5">
+    <table class="d-inline w-25 table mx-4 py-5">
+        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa D</caption></b>
         <thead>
         <tr>
             <th scope="col"></th>
@@ -111,261 +80,94 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+        <tr th:each="team, iterator: ${groupDTeams}">
+            <td th:text="${iterator.index+1}" />
+            <td th:text="${team.teamCountry}" />
+            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+            <td th:text="${team.teamPoints}" />
         </tr>
         </tbody>
     </table>
 </div>
 <div class="my-5">
-    <table class="d-inline w-25 table mx-5 py-5">
+    <table class="d-inline w-25 table mx-4 py-5">
+        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa E</caption></b>
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Kraj</th>
+            <th scope="col">Bramki</th>
+            <th scope="col">Punkty</th>
+        </tr>
+        </thead>
         <tbody>
-        <tr>
-            <th scope="row"></th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+        <tr th:each="team, iterator: ${groupETeams}">
+            <td th:text="${iterator.index+1}" />
+            <td th:text="${team.teamCountry}" />
+            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+            <td th:text="${team.teamPoints}" />
         </tr>
         </tbody>
     </table>
-    <table class="d-inline w-25 table mx-5 py-5">
+    <table class="d-inline w-25 table mx-4 py-5">
+        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa F</caption></b>
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Kraj</th>
+            <th scope="col">Bramki</th>
+            <th scope="col">Punkty</th>
+        </tr>
+        </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+        <tr th:each="team, iterator: ${groupFTeams}">
+            <td th:text="${iterator.index+1}" />
+            <td th:text="${team.teamCountry}" />
+            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+            <td th:text="${team.teamPoints}" />
         </tr>
         </tbody>
     </table>
-    <table class="d-inline w-25 table mx-5 py-5">
+    <table class="d-inline w-25 table mx-4 py-5">
+        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa G</caption></b>
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Kraj</th>
+            <th scope="col">Bramki</th>
+            <th scope="col">Punkty</th>
+        </tr>
+        </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+        <tr th:each="team, iterator: ${groupGTeams}">
+            <td th:text="${iterator.index+1}" />
+            <td th:text="${team.teamCountry}" />
+            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+            <td th:text="${team.teamPoints}" />
         </tr>
         </tbody>
     </table>
-    <table class="d-inline w-25 table mx-5 py-5">
+    <table class="d-inline w-25 table mx-4 py-5">
+        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa H</caption></b>
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Kraj</th>
+            <th scope="col">Bramki</th>
+            <th scope="col">Punkty</th>
+        </tr>
+        </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+        <tr th:each="team, iterator: ${groupHTeams}">
+            <td th:text="${iterator.index+1}" />
+            <td th:text="${team.teamCountry}" />
+            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+            <td th:text="${team.teamPoints}" />
         </tr>
         </tbody>
     </table>
 </div>
-<div class="my-5">
-    <table class="d-inline w-25 table mx-5 py-5">
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        </tbody>
-    </table>
-    <table class="d-inline w-25 table mx-5 mt-5">
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        </tbody>
-    </table>
-    <table class="d-inline w-25 table mx-5 mt-5">
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        </tbody>
-    </table>
-    <table class="d-inline w-25 table mx-5 mt-5">
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+
 
 
 <!-- Optional JavaScript -->
