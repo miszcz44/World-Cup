@@ -7,7 +7,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <link type="text/css" rel="stylesheet" href="demo.css" />
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        input[type=number] {
+          -moz-appearance: textfield;
+        }
+    </style>
 
 </head>
 <body>
@@ -32,7 +41,8 @@
             </tr>
             </tbody>
         </table>
-        Katar<input type="number" class="form-control d-inline" style="width:15px;" id="inputPassword2"> - Ekwador
+        Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+        <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
     </div>
     <div class="d-inline col-3">
         <table class="d-inline w-25 table mx-4 py-5">
