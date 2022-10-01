@@ -20,9 +20,9 @@
 
 </head>
 <body>
-<div class="my-5">
-    <div class="d-inline w-25">
-        <table class="d-inline table mx-4 py-5">
+<div class="my-1">
+    <div class="d-inline-block mx-4 py-5">
+        <table class="table w-25">
             <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa A</caption></b>
             <thead>
             <tr>
@@ -41,11 +41,33 @@
             </tr>
             </tbody>
         </table>
-        Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-        <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" class= "ml-2" style="width:20px; text-align:center;" id="Katar"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
     </div>
-    <div class="d-inline col-3">
-        <table class="d-inline w-25 table mx-4 py-5">
+    <div class="d-inline-block  mx-4 py-5">
+        <table class="table w-25">
             <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa B</caption></b>
             <thead>
             <tr>
@@ -64,123 +86,159 @@
             </tr>
             </tbody>
         </table>
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
+        <form style="text-align:center;" class="mt-2">
+            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        </form>
     </div>
-    <table class="d-inline w-25 table mx-4 py-5">
-        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa C</caption></b>
-        <thead>
-        <tr>
-            <th scope="col"></th>
-            <th scope="col">Kraj</th>
-            <th scope="col">Bramki</th>
-            <th scope="col">Punkty</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="team, iterator: ${groupCTeams}">
-            <td th:text="${iterator.index+1}" />
-            <td th:text="${team.teamCountry}" />
-            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
-            <td th:text="${team.teamPoints}" />
-        </tr>
-        </tbody>
-    </table>
-    <table class="d-inline w-25 table mx-4 py-5">
-        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa D</caption></b>
-        <thead>
-        <tr>
-            <th scope="col"></th>
-            <th scope="col">Kraj</th>
-            <th scope="col">Bramki</th>
-            <th scope="col">Punkty</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="team, iterator: ${groupDTeams}">
-            <td th:text="${iterator.index+1}" />
-            <td th:text="${team.teamCountry}" />
-            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
-            <td th:text="${team.teamPoints}" />
-        </tr>
-        </tbody>
-    </table>
+    <div class="d-inline-block mx-4  py-5">
+        <table class="table w-25">
+            <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa C</caption></b>
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Kraj</th>
+                <th scope="col">Bramki</th>
+                <th scope="col">Punkty</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="team, iterator: ${groupCTeams}">
+                <td th:text="${iterator.index+1}" />
+                <td th:text="${team.teamCountry}" />
+                <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+                <td th:text="${team.teamPoints}" />
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-inline-block  mx-4 py-5">
+        <table class="table w-25">
+            <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa D</caption></b>
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Kraj</th>
+                <th scope="col">Bramki</th>
+                <th scope="col">Punkty</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="team, iterator: ${groupDTeams}">
+                <td th:text="${iterator.index+1}" />
+                <td th:text="${team.teamCountry}" />
+                <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+                <td th:text="${team.teamPoints}" />
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-<div class="my-5">
-    <table class="d-inline w-25 table mx-4 py-5">
-        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa E</caption></b>
-        <thead>
-        <tr>
-            <th scope="col"></th>
-            <th scope="col">Kraj</th>
-            <th scope="col">Bramki</th>
-            <th scope="col">Punkty</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="team, iterator: ${groupETeams}">
-            <td th:text="${iterator.index+1}" />
-            <td th:text="${team.teamCountry}" />
-            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
-            <td th:text="${team.teamPoints}" />
-        </tr>
-        </tbody>
-    </table>
-    <table class="d-inline w-25 table mx-4 py-5">
-        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa F</caption></b>
-        <thead>
-        <tr>
-            <th scope="col"></th>
-            <th scope="col">Kraj</th>
-            <th scope="col">Bramki</th>
-            <th scope="col">Punkty</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="team, iterator: ${groupFTeams}">
-            <td th:text="${iterator.index+1}" />
-            <td th:text="${team.teamCountry}" />
-            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
-            <td th:text="${team.teamPoints}" />
-        </tr>
-        </tbody>
-    </table>
-    <table class="d-inline w-25 table mx-4 py-5">
-        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa G</caption></b>
-        <thead>
-        <tr>
-            <th scope="col"></th>
-            <th scope="col">Kraj</th>
-            <th scope="col">Bramki</th>
-            <th scope="col">Punkty</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="team, iterator: ${groupGTeams}">
-            <td th:text="${iterator.index+1}" />
-            <td th:text="${team.teamCountry}" />
-            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
-            <td th:text="${team.teamPoints}" />
-        </tr>
-        </tbody>
-    </table>
-    <table class="d-inline w-25 table mx-4 py-5">
-        <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa H</caption></b>
-        <thead>
-        <tr>
-            <th scope="col"></th>
-            <th scope="col">Kraj</th>
-            <th scope="col">Bramki</th>
-            <th scope="col">Punkty</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="team, iterator: ${groupHTeams}">
-            <td th:text="${iterator.index+1}" />
-            <td th:text="${team.teamCountry}" />
-            <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
-            <td th:text="${team.teamPoints}" />
-        </tr>
-        </tbody>
-    </table>
+<div class="my-1">
+    <div class="d-inline-block mx-4  py-5">
+        <table class="table w-25">
+            <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa E</caption></b>
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Kraj</th>
+                <th scope="col">Bramki</th>
+                <th scope="col">Punkty</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="team, iterator: ${groupETeams}">
+                <td th:text="${iterator.index+1}" />
+                <td th:text="${team.teamCountry}" />
+                <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+                <td th:text="${team.teamPoints}" />
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-inline-block mx-4  py-5">
+        <table class="table w-25">
+            <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa F</caption></b>
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Kraj</th>
+                <th scope="col">Bramki</th>
+                <th scope="col">Punkty</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="team, iterator: ${groupFTeams}">
+                <td th:text="${iterator.index+1}" />
+                <td th:text="${team.teamCountry}" />
+                <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+                <td th:text="${team.teamPoints}" />
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-inline-block mx-4  py-5">
+        <table class="table w-25">
+            <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa G</caption></b>
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Kraj</th>
+                <th scope="col">Bramki</th>
+                <th scope="col">Punkty</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="team, iterator: ${groupGTeams}">
+                <td th:text="${iterator.index+1}" />
+                <td th:text="${team.teamCountry}" />
+                <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+                <td th:text="${team.teamPoints}" />
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-inline-block mx-4  py-5">
+        <table class="table w-25">
+            <b><caption style="caption-side:top; text-align:center; font-size:24px;">Grupa H</caption></b>
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Kraj</th>
+                <th scope="col">Bramki</th>
+                <th scope="col">Punkty</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="team, iterator: ${groupHTeams}">
+                <td th:text="${iterator.index+1}" />
+                <td th:text="${team.teamCountry}" />
+                <td th:text="|${team.teamGoalsScored}-${team.teamGoalsSuffered}|" />
+                <td th:text="${team.teamPoints}" />
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
