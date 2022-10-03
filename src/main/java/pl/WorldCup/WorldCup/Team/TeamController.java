@@ -2,9 +2,11 @@ package pl.WorldCup.WorldCup.Team;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 @Controller
 @RestController
@@ -43,6 +45,13 @@ public class TeamController {
     @PutMapping
     public void updateTeamPoints(String teamCountry, @RequestParam(required = false) Integer teamPoints) {
         teamService.updateTeamPoints(teamCountry, teamPoints);
+    }
+
+    @PostMapping("/")
+    public void dummy(HttpServletRequest request) {
+        String goalsScored = request.getParameter("Katar");
+        String dsaf = request.getParameter("team");
+        System.out.println(goalsScored);
     }
 
 }
