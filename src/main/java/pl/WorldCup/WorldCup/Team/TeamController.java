@@ -49,9 +49,10 @@ public class TeamController {
 
     @PostMapping("/")
     public void dummy(HttpServletRequest request) {
-        String goalsScored = request.getParameter("Katar");
-        String dsaf = request.getParameter("team");
-        System.out.println(goalsScored);
+        String dsaf = request.getParameter("goal");
+        String team1 = request.getParameter("team1");
+        System.out.println(dsaf);
+        System.out.println(team1);
     }
 
 }
