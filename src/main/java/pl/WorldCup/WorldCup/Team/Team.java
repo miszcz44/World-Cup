@@ -40,7 +40,7 @@ public class Team {
     @Column(
             name = "team_points",
             nullable = false,
-            columnDefinition = "integer default 0"
+            columnDefinition = "SELECT SUM(first_match_team_points_earned, second_match_team_points_earned, third_match_team_points_earned) FROM team"
     )
     private Integer teamPoints;
     @Column(
@@ -55,22 +55,58 @@ public class Team {
             columnDefinition = "integer default 0"
     )
     private Integer teamGoalsSuffered;
-
+    @Column(
+            name = "first_match_goals_scored",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
     private Integer firstMatchTeamGoalsScored;
-
+    @Column(
+            name = "first_match_goals_suffered",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
     private Integer firstMatchTeamGoalsSuffered;
-
+    @Column(
+            name = "second_match_goals_scored",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
     private Integer secondMatchTeamGoalsScored;
-
+    @Column(
+            name = "second_match_goals_suffered",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
     private Integer secondMatchTeamGoalsSuffered;
-
+    @Column(
+            name = "third_match_goals_scored",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
     private Integer thirdMatchTeamGoalsScored;
-
+    @Column(
+            name = "third_match_goals_suffered",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
     private Integer thirdMatchTeamGoalsSuffered;
-
+    @Column(
+            name = "first_match_team_points_earned",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
     private Integer firstMatchPointsEarned;
-
+    @Column(
+            name = "second_match_team_points_earned",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
     private Integer secondMatchPointsEarned;
-
+    @Column(
+            name = "third_match_team_points_earned",
+            nullable = false,
+            columnDefinition = "integer default 0"
+    )
     private Integer thirdMatchPointsEarned;
 }
