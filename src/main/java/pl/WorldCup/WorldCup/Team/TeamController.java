@@ -47,12 +47,13 @@ public class TeamController {
         teamService.updateTeamPoints(teamCountry, teamPoints);
     }
 
-    @PostMapping("/")
+    @PostMapping("/das")
     public void dummy(HttpServletRequest request) {
-        String dsaf = request.getParameter("goal");
+        String teamMatch = request.getParameter("teamMatch");
+        String goalsScoredByTeam1 = request.getParameter("goalsScoredByTeam1");
         String team1 = request.getParameter("team1");
-        System.out.println(dsaf);
-        System.out.println(team1);
+        String goalsScoredByTeam2 = request.getParameter("goalsScoredByTeam2");
+        String team2 = request.getParameter("team2");
     }
 
 }

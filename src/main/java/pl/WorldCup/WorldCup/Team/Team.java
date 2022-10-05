@@ -55,4 +55,16 @@ public class Team {
             columnDefinition = "integer default 0"
     )
     private Integer teamGoalsSuffered;
+
+    private Integer firstMatchTeamGoalsScored;
+
+    private Integer firstMatchTeamGoalsSuffered;
+
+    private Integer secondMatchTeamGoalsScored;
+
+    private Integer secondMatchTeamGoalsSuffered;
+
+    private Integer thirdMatchTeamGoalsScored;
+
+    private Integer thirdMatchTeamGoalsSuffered;
 }
