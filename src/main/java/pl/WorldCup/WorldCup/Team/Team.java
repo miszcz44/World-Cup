@@ -67,4 +67,10 @@ public class Team {
     private Integer thirdMatchTeamGoalsScored;
 
     private Integer thirdMatchTeamGoalsSuffered;
+
+    private Integer firstMatchPointsEarned;
+
+    private Integer secondMatchPointsEarned;
+
+    private Integer thirdMatchPointsEarned;
 }

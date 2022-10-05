@@ -47,13 +47,21 @@ public class TeamController {
         teamService.updateTeamPoints(teamCountry, teamPoints);
     }
 
+
     @PostMapping("/das")
-    public void dummy(HttpServletRequest request) {
-        String teamMatch = request.getParameter("teamMatch");
-        String goalsScoredByTeam1 = request.getParameter("goalsScoredByTeam1");
-        String team1 = request.getParameter("team1");
-        String goalsScoredByTeam2 = request.getParameter("goalsScoredByTeam2");
-        String team2 = request.getParameter("team2");
+    public void getMatchInfoAndUpdateFieldsBasedOnIt(HttpServletRequest request) {
+        Integer teamMatch = Integer.valueOf(request.getParameter("teamMatch"));
+        Integer goalsScoredByTeam1 = Integer.valueOf(request.getParameter("goalsScoredByTeam1"));
+        String teamCountry1 = request.getParameter("team1");
+        Integer goalsScoredByTeam2 = Integer.valueOf(request.getParameter("goalsScoredByTeam2"));
+        String teamCountry2 = request.getParameter("team2");
+        Team team1 = teamService.findTeamByCountry(teamCountry1);
+        Team team2 = teamService.findTeamByCountry(teamCountry2);
+        teamService.updateTheTeamPointsFieldBasedOnTheOutcomeOfTheGame(team1, team2, goalsScoredByTeam1, goalsScoredByTeam2, teamMatch);
+        teamService.updateGoalsScoredByATeamInGivenMatchByCountry(team1, teamMatch, goalsScoredByTeam1);
+        teamService.updateGoalsScoredByATeamInGivenMatchByCountry(team2, teamMatch, goalsScoredByTeam2);
+        teamService.updateGoalsSufferedByATeamInGivenMatchByCountry(team1, teamMatch, goalsScoredByTeam2);
+        teamService.updateGoalsSufferedByATeamInGivenMatchByCountry(team2, teamMatch, goalsScoredByTeam1);
     }
 
 }
