@@ -59,9 +59,8 @@ public class TeamService {
     }
 
     @Transactional
-    public void updateTeamPoints(String country, Integer teamPoints) {
-        Team team = findTeamByCountry(country);
-        team.setTeamPoints(team.getTeamPoints() + teamPoints);
+    public void updateTeamPoints(Team team) {
+        team.setTeamPoints(team.getFirstMatchPointsEarned() + team.getSecondMatchPointsEarned() + team.getThirdMatchPointsEarned());
     }
 
     @Transactional

@@ -40,7 +40,7 @@ public class Team {
     @Column(
             name = "team_points",
             nullable = false,
-            columnDefinition = "SELECT SUM(first_match_team_points_earned, second_match_team_points_earned, third_match_team_points_earned) FROM team"
+            columnDefinition = "integer default 0"
     )
     private Integer teamPoints;
     @Column(
@@ -48,6 +48,7 @@ public class Team {
             nullable = false,
             columnDefinition = "integer default 0"
     )
+
     private Integer teamGoalsScored;
     @Column(
             name = "team_goals_suffered",
@@ -96,17 +97,18 @@ public class Team {
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer firstMatchPointsEarned;
+    private Integer firstMatchPointsEarned = 0;
     @Column(
             name = "second_match_team_points_earned",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer secondMatchPointsEarned;
+    private Integer secondMatchPointsEarned = 0;
     @Column(
             name = "third_match_team_points_earned",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer thirdMatchPointsEarned;
+    private Integer thirdMatchPointsEarned = 0;
+
 }

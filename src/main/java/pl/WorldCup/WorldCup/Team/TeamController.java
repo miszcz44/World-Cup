@@ -42,10 +42,7 @@ public class TeamController {
     public void addNewTeam(@RequestBody List<Team> teams) {
         teamService.addNewTeams(teams);
     }
-    @PutMapping
-    public void updateTeamPoints(String teamCountry, @RequestParam(required = false) Integer teamPoints) {
-        teamService.updateTeamPoints(teamCountry, teamPoints);
-    }
+
 
 
     @PostMapping("/das")
@@ -62,6 +59,8 @@ public class TeamController {
         teamService.updateGoalsScoredByATeamInGivenMatchByCountry(team2, teamMatch, goalsScoredByTeam2);
         teamService.updateGoalsSufferedByATeamInGivenMatchByCountry(team1, teamMatch, goalsScoredByTeam2);
         teamService.updateGoalsSufferedByATeamInGivenMatchByCountry(team2, teamMatch, goalsScoredByTeam1);
+        teamService.updateTeamPoints(team1);
+        teamService.updateTeamPoints(team2);
     }
 
 }
