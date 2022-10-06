@@ -16,10 +16,12 @@
         input[type=number] {
           -moz-appearance: textfield;
         }
+        .hide { position:absolute; top:-1px; left:-1px; width:1px; height:1px; }
     </style>
 
 </head>
 <body>
+<iframe name="hiddenFrame" class="hide"></iframe>
 <div class="my-1">
     <div class="d-inline-block mx-4 py-5">
         <table class="table w-25">
@@ -41,7 +43,7 @@
             </tr>
             </tbody>
         </table>
-        <form th:action="@{/das}" style="text-align:center;" class="mt-2" method="post" id="1" >
+        <form th:action="@{/}" style="text-align:center;" class="mt-2" method="post" id="1" target="hiddenFrame">
             <input type="hidden" name="teamMatch" value="1">
             <input type="hidden" name="team1" value="Katar">Katar <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
             <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Ekwador">Ekwador
@@ -241,7 +243,10 @@
         </table>
     </div>
     <div style="text-align:center;">
-        <input type="button" value="Zapisz" onclick="submitForms()" />
+        <form>
+            <input type="submit" value="Zapisz" onsubmit="setTimeout(function () { window.location.reload(); }, 1000)" onclick="submitForms()"
+                   />
+        </form>
     </div>
 </div>
 
@@ -256,6 +261,14 @@
     submitForms = function(){
     document.getElementById("1").submit();
 }
+</script>
+<script>
+    $('form').live('submit', function(){
+      $.post($(this).attr('action'), $(this).serialize(), function(response){
+            // do something here on success
+      },'json');
+      return false;
+   });
 </script>
 </body>
 </html>

@@ -20,7 +20,7 @@ public class MatchController {
         this.matchService = matchService;
     }
 
-    @PostMapping("/")
+    @PostMapping("/asd")
     public void getMatchInfoAndAddItAsANewMatch(HttpServletRequest request) {
         String teamMatch = request.getParameter("teamMatch");
         String goalsScoredByTeam1 = request.getParameter("goalsScoredByTeam1");

@@ -43,9 +43,7 @@ public class TeamController {
         teamService.addNewTeams(teams);
     }
 
-
-
-    @PostMapping("/das")
+    @PostMapping("/")
     public void getMatchInfoAndUpdateFieldsBasedOnIt(HttpServletRequest request) {
         Integer teamMatch = Integer.valueOf(request.getParameter("teamMatch"));
         Integer goalsScoredByTeam1 = Integer.valueOf(request.getParameter("goalsScoredByTeam1"));
