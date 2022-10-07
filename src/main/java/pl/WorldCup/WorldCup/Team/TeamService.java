@@ -64,6 +64,16 @@ public class TeamService {
     }
 
     @Transactional
+    public void updateTeamGoalsScored(Team team) {
+        team.setTeamGoalsScored(team.getFirstMatchTeamGoalsScored() + team.getSecondMatchTeamGoalsScored() + team.getThirdMatchTeamGoalsScored());
+    }
+
+    @Transactional
+    public void updateTeamGoalsSuffered(Team team) {
+        team.setTeamGoalsSuffered(team.getThirdMatchTeamGoalsSuffered() + team.getFirstMatchTeamGoalsSuffered() + team.getSecondMatchTeamGoalsSuffered());
+    }
+
+    @Transactional
     public void updateGoalsScoredByATeamInGivenMatchByCountry(Team team, Integer gameInOrder, Integer goalsScored) {
         if(gameInOrder == 1){
             team.setFirstMatchTeamGoalsScored(goalsScored);

@@ -61,6 +61,10 @@ public class TeamController {
         teamService.updateGoalsSufferedByATeamInGivenMatchByCountry(team2, teamMatch, goalsScoredByTeam1);
         teamService.updateTeamPoints(team1);
         teamService.updateTeamPoints(team2);
+        teamService.updateTeamGoalsScored(team1);
+        teamService.updateTeamGoalsScored(team2);
+        teamService.updateTeamGoalsSuffered(team1);
+        teamService.updateTeamGoalsSuffered(team2);
         return "redirect:/index";
     }
 }
