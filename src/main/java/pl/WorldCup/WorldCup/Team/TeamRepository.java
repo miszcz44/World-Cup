@@ -1,5 +1,6 @@
 package pl.WorldCup.WorldCup.Team;
 
+import org.apache.tomcat.util.buf.StringUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -15,6 +16,9 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
             nativeQuery = true
     )
     public List<Long> getTeamIdsByGroupId(Long groupId);
+
+    @Query(value = "SELECT team_country FROM team WHERE id IN group_Id")
+    public List<Team> sortTeamsWithTeamIds(List<Long> groupId);
 
     public Team findTeamByTeamId(Long teamId);
 }
