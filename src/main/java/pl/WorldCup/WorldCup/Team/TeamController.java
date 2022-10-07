@@ -14,7 +14,7 @@ import java.util.List;
 public class TeamController {
 
     private final TeamService teamService;
-    @GetMapping({"/list", "/"})
+    @GetMapping({"/list", "/index"})
     public ModelAndView getAllTeams(){
         ModelAndView mav = new ModelAndView("index");
         mav.addObject("groupATeams", teamService.getTeamsFromGivenGroup("a"));
@@ -43,8 +43,10 @@ public class TeamController {
         teamService.addNewTeams(teams);
     }
 
-    @PostMapping("/")
-    public void getMatchInfoAndUpdateFieldsBasedOnIt(HttpServletRequest request) {
+
+
+    @PostMapping("/index")
+    public String getMatchInfoAndUpdateFieldsBasedOnIt(HttpServletRequest request) {
         Integer teamMatch = Integer.valueOf(request.getParameter("teamMatch"));
         Integer goalsScoredByTeam1 = Integer.valueOf(request.getParameter("goalsScoredByTeam1"));
         String teamCountry1 = request.getParameter("team1");
@@ -59,6 +61,6 @@ public class TeamController {
         teamService.updateGoalsSufferedByATeamInGivenMatchByCountry(team2, teamMatch, goalsScoredByTeam1);
         teamService.updateTeamPoints(team1);
         teamService.updateTeamPoints(team2);
+        return "redirect:/index";
     }
-
 }
