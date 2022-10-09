@@ -52,7 +52,8 @@ public class TeamService {
         GroupPhase group = groupService.findGroupByGroupName(groupName);
         List<Long> teamIds = teamRepository.getTeamIdsByGroupId(group.getGroupId());
         List<Team> teams = new ArrayList<>();
-        for(Long id : teamIds) {
+        List<Long> sortedTeamIds = teamRepository.sortTeamsWithTeamIds(teamIds);
+        for(Long id : sortedTeamIds) {
             teams.add(teamRepository.findTeamByTeamId(id));
         }
         return teams;
