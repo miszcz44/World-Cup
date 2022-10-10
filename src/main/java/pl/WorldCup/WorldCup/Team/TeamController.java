@@ -31,9 +31,9 @@ public class TeamController {
     }
 
     @Autowired
-    public TeamController(TeamService teamService, MatchService matchService, MatchService matchService1) {
+    public TeamController(TeamService teamService, MatchService matchService) {
         this.teamService = teamService;
-        this.matchService = matchService1;
+        this.matchService = matchService;
     }
 
     @GetMapping
@@ -68,7 +68,7 @@ public class TeamController {
         teamService.updateTeamGoalsScored(team2);
         teamService.updateTeamGoalsSuffered(team1);
         teamService.updateTeamGoalsSuffered(team2);
-        Match match = new Match(team1, team2, goalsScoredByTeam1, goalsScoredByTeam2);
+        Match match = new Match(team1.getTeamCountry(), team2.getTeamCountry(), goalsScoredByTeam1, goalsScoredByTeam2);
         matchService.addNewMatch(match);
         teamService.setMatchInProperOrder(team1, match, teamMatch);
         teamService.setMatchInProperOrder(team2, match, teamMatch);

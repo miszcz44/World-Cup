@@ -30,22 +30,9 @@ public class Match {
             updatable = false
     )
     private Long id;
-    @OneToOne(
-            cascade = CascadeType.ALL,
-            optional = false
-    )
-    @JoinColumn(
-            name = "team1_id"
-    )
-    private Team team1;
-    @OneToOne(
-            cascade = CascadeType.ALL,
-            optional = false
-    )
-    @JoinColumn(
-            name = "team2_id"
-    )
-    private Team team2;
+
+    private String team1Country;
+    private String team2Country;
     @Column(
             name = "team1_goals_scored",
             nullable = false,
@@ -59,10 +46,21 @@ public class Match {
     )
     private Integer goalsScoredByTeam2;
 
-    public Match(Team team1, Team team2, Integer goalsScoredByTeam1, Integer goalsScoredByTeam2) {
-        this.team1 = team1;
-        this.team2 = team2;
+    public Match(String team1Country, String team2Country, Integer goalsScoredByTeam1, Integer goalsScoredByTeam2) {
+        this.team1Country = team1Country;
+        this.team2Country = team2Country;
         this.goalsScoredByTeam1 = goalsScoredByTeam1;
         this.goalsScoredByTeam2 = goalsScoredByTeam2;
+    }
+
+    @Override
+    public String toString() {
+        return "Match{" +
+                "id=" + id +
+                ", team1Country='" + team1Country + '\'' +
+                ", team2Country='" + team2Country + '\'' +
+                ", goalsScoredByTeam1=" + goalsScoredByTeam1 +
+                ", goalsScoredByTeam2=" + goalsScoredByTeam2 +
+                '}';
     }
 }
