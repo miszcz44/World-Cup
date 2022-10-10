@@ -2,9 +2,10 @@ package pl.WorldCup.WorldCup.Team;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import pl.WorldCup.WorldCup.Match.Match;
+import pl.WorldCup.WorldCup.Match.MatchService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 public class TeamController {
 
     private final TeamService teamService;
+    private final MatchService matchService;
     @GetMapping({"/list", "/index"})
     public ModelAndView getAllTeams(){
         ModelAndView mav = new ModelAndView("index");
@@ -29,8 +31,9 @@ public class TeamController {
     }
 
     @Autowired
-    public TeamController(TeamService teamService) {
+    public TeamController(TeamService teamService, MatchService matchService, MatchService matchService1) {
         this.teamService = teamService;
+        this.matchService = matchService1;
     }
 
     @GetMapping
@@ -46,7 +49,7 @@ public class TeamController {
 
 
     @PostMapping("/index")
-    public String getMatchInfoAndUpdateFieldsBasedOnIt(HttpServletRequest request) {
+    public void getMatchInfoAndUpdateFieldsBasedOnIt(HttpServletRequest request) {
         Integer teamMatch = Integer.valueOf(request.getParameter("teamMatch"));
         Integer goalsScoredByTeam1 = Integer.valueOf(request.getParameter("goalsScoredByTeam1"));
         String teamCountry1 = request.getParameter("team1");
@@ -65,6 +68,9 @@ public class TeamController {
         teamService.updateTeamGoalsScored(team2);
         teamService.updateTeamGoalsSuffered(team1);
         teamService.updateTeamGoalsSuffered(team2);
-        return "redirect:/index";
+        Match match = new Match(team1, team2, goalsScoredByTeam1, goalsScoredByTeam2);
+        matchService.addNewMatch(match);
+        teamService.setMatchInProperOrder(team1, match, teamMatch);
+        teamService.setMatchInProperOrder(team2, match, teamMatch);
     }
 }

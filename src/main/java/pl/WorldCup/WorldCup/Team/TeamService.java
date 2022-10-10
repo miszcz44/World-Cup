@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.WorldCup.WorldCup.Group.GroupPhase;
 import pl.WorldCup.WorldCup.Group.GroupService;
+import pl.WorldCup.WorldCup.Match.Match;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -127,6 +129,18 @@ public class TeamService {
         else {
             updateTheTeamPointsFromAGivenGameField(team1, gameInOrder, 1);
             updateTheTeamPointsFromAGivenGameField(team2, gameInOrder, 1);
+        }
+    }
+
+    public void setMatchInProperOrder(Team team, Match match, Integer gameInOrder) {
+        if(gameInOrder == 1) {
+            team.setFirstMatchOfTheGroupStage(match);
+        }
+        else if(gameInOrder == 2) {
+            team.setSecondMatchOfTheGroupStage(match);
+        }
+        else {
+            team.setThirdMatchOfTheGroupStage(match);
         }
     }
 

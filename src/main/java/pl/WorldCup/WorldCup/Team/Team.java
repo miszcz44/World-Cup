@@ -4,8 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.WorldCup.WorldCup.Group.GroupPhase;
+import pl.WorldCup.WorldCup.Match.Match;
 
 import javax.persistence.*;
+
+import java.util.List;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -110,5 +113,17 @@ public class Team {
             columnDefinition = "integer default 0"
     )
     private Integer thirdMatchPointsEarned = 0;
+    @OneToOne(
+            mappedBy = "ma"
+    )
+    private Match firstMatchOfTheGroupStage;
+    @OneToOne(
+            mappedBy = "team"
+    )
+    private Match secondMatchOfTheGroupStage;
+    @OneToOne(
+            mappedBy = "Team.team"
+    )
+    private Match thirdMatchOfTheGroupStage;
 
 }

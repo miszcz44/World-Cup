@@ -3,6 +3,7 @@ package pl.WorldCup.WorldCup.Match;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.WorldCup.WorldCup.Team.Team;
 
 import javax.persistence.*;
 
@@ -29,18 +30,22 @@ public class Match {
             updatable = false
     )
     private Long id;
-    @Column(
-            name = "team1_country",
-            nullable = false,
-            columnDefinition = "text"
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            optional = false
     )
-    private String team1;
-    @Column(
-            name = "team2_country",
-            nullable = false,
-            columnDefinition = "text"
+    @JoinColumn(
+            name = "team1_id"
     )
-    private String team2;
+    private Team team1;
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            optional = false
+    )
+    @JoinColumn(
+            name = "team2_id"
+    )
+    private Team team2;
     @Column(
             name = "team1_goals_scored",
             nullable = false,
@@ -54,10 +59,10 @@ public class Match {
     )
     private Integer goalsScoredByTeam2;
 
-    public Match(String team1, String team2, Integer valueOf, Integer valueOf1) {
+    public Match(Team team1, Team team2, Integer goalsScoredByTeam1, Integer goalsScoredByTeam2) {
         this.team1 = team1;
         this.team2 = team2;
-        this.goalsScoredByTeam1 = valueOf;
-        this.goalsScoredByTeam2 = valueOf1;
+        this.goalsScoredByTeam1 = goalsScoredByTeam1;
+        this.goalsScoredByTeam2 = goalsScoredByTeam2;
     }
 }
