@@ -113,8 +113,8 @@ public class Team {
             columnDefinition = "integer default 0"
     )
     private Integer thirdMatchPointsEarned = 0;
-    @OneToOne
-    @JoinColumn(name="first_match")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "first_match")
     private Match firstMatchOfTheGroupStage;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "second_match")
@@ -122,5 +122,4 @@ public class Team {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "third_match")
     private Match thirdMatchOfTheGroupStage;
-
 }

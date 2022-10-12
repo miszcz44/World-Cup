@@ -132,6 +132,7 @@ public class TeamService {
         }
     }
 
+    @Transactional
     public void setMatchInProperOrder(Team team, Match match, Integer gameInOrder) {
         if(gameInOrder == 1) {
             team.setFirstMatchOfTheGroupStage(match);

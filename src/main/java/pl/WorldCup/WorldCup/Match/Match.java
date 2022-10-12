@@ -45,7 +45,6 @@ public class Match {
             columnDefinition = "integer default 0"
     )
     private Integer goalsScoredByTeam2;
-
     public Match(String team1Country, String team2Country, Integer goalsScoredByTeam1, Integer goalsScoredByTeam2) {
         this.team1Country = team1Country;
         this.team2Country = team2Country;
