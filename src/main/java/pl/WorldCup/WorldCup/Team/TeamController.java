@@ -66,9 +66,18 @@ public class TeamController {
         teamService.updateTeamGoalsScored(team2);
         teamService.updateTeamGoalsSuffered(team1);
         teamService.updateTeamGoalsSuffered(team2);
-        Match match = new Match(team1.getTeamCountry(), team2.getTeamCountry(), goalsScoredByTeam1, goalsScoredByTeam2);
-        matchService.addNewMatch(match);
-        teamService.setMatchInProperOrder(team1, match, teamMatch);
-        teamService.setMatchInProperOrder(team2, match, teamMatch);
+        if(matchService.checkIfSuchMatchIsAlreadyInBaseByCountryNames(teamCountry1, teamCountry2) == null){
+            Match match = new Match(teamCountry1, teamCountry2, goalsScoredByTeam1, goalsScoredByTeam2);
+            matchService.addNewMatch(match);
+            teamService.setMatchInProperOrder(team1, match, teamMatch);
+            teamService.setMatchInProperOrder(team2, match, teamMatch);
+        }
+        else{
+            Match match = matchService.checkIfSuchMatchIsAlreadyInBaseByCountryNames(teamCountry1, teamCountry2);
+            matchService.updateTheResultOfTheMatch(match, goalsScoredByTeam1, goalsScoredByTeam2);
+            teamService.setMatchInProperOrder(team1, match, teamMatch);
+            teamService.setMatchInProperOrder(team2, match, teamMatch);
+        }
+
     }
 }
