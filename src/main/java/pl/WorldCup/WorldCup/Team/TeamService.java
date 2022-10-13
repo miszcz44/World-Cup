@@ -57,15 +57,18 @@ public class TeamService {
         GroupPhase group = groupService.findGroupByGroupName(groupName);
         List<Long> teamIds = teamRepository.getTeamIdsByGroupId(group.getGroupId());
         List<Team> teams = new ArrayList<>();
-        Integer numberOfTeamsWithSameAmountOfPoints = getNumberOfTeamsWithTheSameAmountOfPoints(teams);
         List<Long> sortedTeamIds = teamRepository.sortTeamsWithTeamIds(teamIds);
         for(Long id : sortedTeamIds) {
             teams.add(teamRepository.findTeamByTeamId(id));
         }
+        Integer numberOfTeamsWithSameAmountOfPoints = getNumberOfTeamsWithTheSameAmountOfPoints(teams);
         if(numberOfTeamsWithSameAmountOfPoints == 2) {
-            teams = sortTeamsWhenThereAre2TeamsWithSameAmountOfPoints(teams);
+            List<Team> updatedTeams = sortTeamsWhenThereAre2TeamsWithSameAmountOfPoints(teams);
+            return updatedTeams;
         }
-        return teams;
+        else {
+            return teams;
+        }
     }
 
     public Integer getNumberOfTeamsWithTheSameAmountOfPoints(List<Team> teams) {
@@ -101,12 +104,44 @@ public class TeamService {
         Team team3 = teams.get(2);
         Team team4 = teams.get(3);
         if(team1.getTeamPoints() == team2.getTeamPoints()) {
-            Team winner = getWinnerOfTheMatchByTeamCountries(team1.getTeamCountry(), team2.getTeamCountry());
-            if(winner == team1){
-
-            }
+            List<Team> tmpTeams = addTeamsInCorrectOrder(team1, team2);
+            sortedTeams.add(tmpTeams.get(0));
+            sortedTeams.add(tmpTeams.get(1));
         }
-        return sortedTeams;
+        else if(team2.getTeamPoints() == team3.getTeamPoints()) {
+            sortedTeams.add(team1);
+            List<Team> tmpTeams = addTeamsInCorrectOrder(team2, team3);
+            sortedTeams.add(tmpTeams.get(0));
+            sortedTeams.add(tmpTeams.get(1));
+        }
+        if(team3.getTeamPoints() == team4.getTeamPoints()) {
+            if(sortedTeams.size() == 0) {
+                sortedTeams.add(team1);
+                sortedTeams.add(team2);
+            }
+            List<Team> tmpTeams = addTeamsInCorrectOrder(team3, team4);
+            sortedTeams.add(tmpTeams.get(0));
+            sortedTeams.add(tmpTeams.get(1));
+        }
+        else{
+            sortedTeams.add(team3);
+            sortedTeams.add(team4);
+        }
+            return sortedTeams;
+    }
+
+    public List<Team> addTeamsInCorrectOrder(Team team1, Team team2) {
+        List<Team> teams = new ArrayList<>();
+        Team winner = getWinnerOfTheMatchByTeamCountries(team1.getTeamCountry(), team2.getTeamCountry());
+        if(winner == team2){
+            teams.add(team2);
+            teams.add(team1);
+        }
+        else {
+            teams.add(team1);
+            teams.add(team2);
+        }
+        return teams;
     }
 
     public Team getWinnerOfTheMatch(Match match) {
@@ -119,7 +154,7 @@ public class TeamService {
         return null;
     }
     public Team getWinnerOfTheMatchByTeamCountries(String teamCountry1, String teamCountry2) {
-        Team team = matchService.getMatchByTeamsCountries(teamCountry1, teamCountry2);
+        Match match = matchService.getMatchByTeamsCountries(teamCountry1, teamCountry2);
         return getWinnerOfTheMatch(match);
     }
     @Transactional

@@ -15,4 +15,32 @@ class TeamServiceTest {
     public void getAllStudentsTest() {
         System.out.println(teamService.getTeams());
     }
+
+    @Test
+    void getNumberOfTeams() {
+    }
+
+    @Test
+    void findDuplicates() {
+    }
+
+    @Test
+    void updateTeamGoalsSuffered() {
+    }
+
+    @Test
+    void updateGoalsSufferedByATeamInGivenMatchByCountry() {
+    }
+
+    @Test
+    void updateTheTeamPointsFromAGivenGameField() {
+    }
+
+    @Test
+    void updateTheTeamPointsFieldBasedOnTheOutcomeOfTheGame() {
+    }
+
+    @Test
+    void setMatchInProperOrder() {
+    }
 }
