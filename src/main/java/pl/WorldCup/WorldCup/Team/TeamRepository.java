@@ -18,7 +18,11 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
     )
     public List<Long> getTeamIdsByGroupId(Long groupId);
 
-    @Query(value = "SELECT team_id FROM team WHERE team_id IN :teamIds ORDER BY team_points DESC, (team_goals_scored - team_goals_suffered) DESC",
+    @Query(value = "SELECT team_id FROM team " +
+            "WHERE team_id IN :teamIds " +
+            "ORDER BY team_points DESC, " +
+            "(team_goals_scored - team_goals_suffered) DESC," +
+            "team_goals_scored DESC",
             nativeQuery = true
     )
     public List<Long> sortTeamsWithTeamIds(@Param("teamIds") List<Long> teamIds);

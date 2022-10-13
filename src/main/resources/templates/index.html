@@ -47,25 +47,30 @@
             <input type="hidden" name="team1" value="Katar">Katar <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
             <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Ekwador">Ekwador
         </form>
-        <form style="text-align:center;" class="mt-2">
-            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="2" target="hiddenFrame">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Senegal">Senegal<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Holandia">Holandia
         </form>
-        <form style="text-align:center;" class="mt-2">
-            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="3" target="hiddenFrame">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Katar">Katar <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Senegal">Senegal
         </form>
-        <form style="text-align:center;" class="mt-2">
-            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="4" target="hiddenFrame">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Holandia">Holandia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Ekwador">Ekwador
         </form>
-        <form style="text-align:center;" class="mt-2">
-            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="5" target="hiddenFrame">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Ekwador">Ekwador <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Senegal">Senegal
         </form>
-        <form style="text-align:center;" class="mt-2">
-            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="6" target="hiddenFrame">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Holandia">Holandia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Katar">Katar
         </form>
     </div>
     <div class="d-inline-block  mx-4 py-5">
@@ -257,11 +262,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script type="text/javascript">
     submitForms = function(){
-    document.getElementById("1").submit();
-    setTimeout(function(){
+        setTimeout(function(){ document.getElementById("1").submit();}, 10);
+        setTimeout(function(){ document.getElementById("2").submit();}, 60);
+        setTimeout(function(){ document.getElementById("3").submit();}, 110);
+        setTimeout(function(){ document.getElementById("4").submit();}, 160);
+        setTimeout(function(){ document.getElementById("5").submit();}, 210);
+        setTimeout(function(){ document.getElementById("6").submit();}, 260);
+        setTimeout(function(){
    window.location.reload(1);
-}, 100);
-
+}, 1000);
 }
 </script>
 </body>
