@@ -5,22 +5,25 @@ import org.springframework.stereotype.Service;
 import pl.WorldCup.WorldCup.Group.GroupPhase;
 import pl.WorldCup.WorldCup.Group.GroupService;
 import pl.WorldCup.WorldCup.Match.Match;
+import pl.WorldCup.WorldCup.Match.MatchService;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TeamService {
     private final TeamRepository teamRepository;
     private final GroupService groupService;
+    private final MatchService matchService;
 
     @Autowired
-    public TeamService(TeamRepository teamRepository, GroupService groupService) {
+    public TeamService(TeamRepository teamRepository, GroupService groupService, MatchService matchService) {
         this.teamRepository = teamRepository;
         this.groupService = groupService;
+        this.matchService = matchService;
     }
 
     public Integer getNumberOfTeams() {
@@ -54,13 +57,71 @@ public class TeamService {
         GroupPhase group = groupService.findGroupByGroupName(groupName);
         List<Long> teamIds = teamRepository.getTeamIdsByGroupId(group.getGroupId());
         List<Team> teams = new ArrayList<>();
+        Integer numberOfTeamsWithSameAmountOfPoints = getNumberOfTeamsWithTheSameAmountOfPoints(teams);
         List<Long> sortedTeamIds = teamRepository.sortTeamsWithTeamIds(teamIds);
         for(Long id : sortedTeamIds) {
             teams.add(teamRepository.findTeamByTeamId(id));
         }
+        if(numberOfTeamsWithSameAmountOfPoints == 2) {
+            teams = sortTeamsWhenThereAre2TeamsWithSameAmountOfPoints(teams);
+        }
         return teams;
     }
 
+    public Integer getNumberOfTeamsWithTheSameAmountOfPoints(List<Team> teams) {
+        List<Integer> teamsPoints = getAllTeamsPoints(teams);
+        Set<Integer> uniqueTeamPoints = findDuplicates(teamsPoints);
+        return 4 - uniqueTeamPoints.size();
+    }
+
+    public List<Integer> getAllTeamsPoints(List<Team> teams) {
+        List<Integer> teamsPoints = new ArrayList<>();
+        for (Team team : teams) {
+            teamsPoints.add(team.getTeamPoints());
+        }
+        return teamsPoints;
+    }
+
+    public Set<Integer> findDuplicates(List<Integer> listContainingDuplicates) {
+        final Set<Integer> setToReturn = new HashSet<>();
+        final Set<Integer> set1 = new HashSet<>();
+
+        for (Integer yourInt : listContainingDuplicates) {
+            if (!set1.add(yourInt)) {
+                setToReturn.add(yourInt);
+            }
+        }
+        return setToReturn;
+    }
+
+    public List<Team> sortTeamsWhenThereAre2TeamsWithSameAmountOfPoints(List<Team> teams) {
+        List<Team> sortedTeams = new ArrayList<>();
+        Team team1 = teams.get(0);
+        Team team2 = teams.get(1);
+        Team team3 = teams.get(2);
+        Team team4 = teams.get(3);
+        if(team1.getTeamPoints() == team2.getTeamPoints()) {
+            Team winner = getWinnerOfTheMatchByTeamCountries(team1.getTeamCountry(), team2.getTeamCountry());
+            if(winner == team1){
+
+            }
+        }
+        return sortedTeams;
+    }
+
+    public Team getWinnerOfTheMatch(Match match) {
+        if(match.getGoalsScoredByTeam1() > match.getGoalsScoredByTeam2()) {
+            return teamRepository.findTeamByTeamCountry(match.getTeam1Country());
+        }
+        else if(match.getGoalsScoredByTeam1() < match.getGoalsScoredByTeam2()) {
+            return teamRepository.findTeamByTeamCountry(match.getTeam2Country());
+        }
+        return null;
+    }
+    public Team getWinnerOfTheMatchByTeamCountries(String teamCountry1, String teamCountry2) {
+        Team team = matchService.getMatchByTeamsCountries(teamCountry1, teamCountry2);
+        return getWinnerOfTheMatch(match);
+    }
     @Transactional
     public void updateTeamPoints(Team team) {
         team.setTeamPoints(team.getFirstMatchPointsEarned() + team.getSecondMatchPointsEarned() + team.getThirdMatchPointsEarned());

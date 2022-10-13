@@ -11,6 +11,7 @@ public class MatchService {
 
     private final MatchRepository matchRepository;
 
+
     @Autowired
     public MatchService(MatchRepository matchRepository) {
         this.matchRepository = matchRepository;
@@ -40,5 +41,9 @@ public class MatchService {
     public void updateTheResultOfTheMatch(Match match, Integer goalsScoredByTeam1, Integer goalsScoredByTeam2) {
         match.setGoalsScoredByTeam1(goalsScoredByTeam1);
         match.setGoalsScoredByTeam2(goalsScoredByTeam2);
+    }
+
+    public Match getMatchByTeamsCountries(String teamCountry1, String teamCountry2) {
+        return matchRepository.getMatchByTeamsCountries(teamCountry1, teamCountry2);
     }
 }
