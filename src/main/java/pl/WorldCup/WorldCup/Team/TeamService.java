@@ -8,10 +8,7 @@ import pl.WorldCup.WorldCup.Match.Match;
 import pl.WorldCup.WorldCup.Match.MatchService;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class TeamService {
@@ -61,8 +58,13 @@ public class TeamService {
         for(Long id : sortedTeamIds) {
             teams.add(teamRepository.findTeamByTeamId(id));
         }
-        Integer numberOfTeamsWithSameAmountOfPoints = getNumberOfTeamsWithTheSameAmountOfPoints(teams);
-        if(numberOfTeamsWithSameAmountOfPoints == 2) {
+        Integer numberOfUniqueAmountsOfPoints = getNumberOfTeamsWithTheSameAmountOfPoints(teams);
+        Integer numberOfOccurencesOfTheSameAmountOfPointsInThreeWayTie = Collections.frequency(getAllTeamsPoints(teams), teams.get(1).getTeamPoints());
+        if(numberOfUniqueAmountsOfPoints == 2 && numberOfOccurencesOfTheSameAmountOfPointsInThreeWayTie == 3) {
+            List<Team> updatedTeams = sortTeamsWhenThereIsAThreeWayTie(teams);
+            return updatedTeams;
+        }
+        else if(numberOfUniqueAmountsOfPoints == 2 || numberOfUniqueAmountsOfPoints == 3) {
             List<Team> updatedTeams = sortTeamsWhenThereAre2TeamsWithSameAmountOfPoints(teams);
             return updatedTeams;
         }
@@ -71,6 +73,27 @@ public class TeamService {
         }
     }
 
+    public List<Team> sortTeamsWhenThereIsAThreeWayTie(List<Team> teams) {
+        List<Team> sortedTeams = new ArrayList<>();
+        Team team1 = teams.get(0);
+        Team team2 = teams.get(1);
+        Team team3 = teams.get(2);
+        Team team4 = teams.get(3);
+        if(getATeamThatDoesNotParticipateInAThreeWayTie(teams) == team1){
+            sortedTeams.add(team1);
+            matchService.getMatchDayOfGivenMatch(team2.getTeamCountry(), team1.getTeamCountry());
+        }
+        return null;
+    }
+
+    public Team getATeamThatDoesNotParticipateInAThreeWayTie(List<Team> teams) {
+        if(teams.get(0).getTeamPoints() == teams.get(1).getTeamPoints()) {
+            return teams.get(3);
+        }
+        else{
+            return teams.get(0);
+        }
+    }
     public Integer getNumberOfTeamsWithTheSameAmountOfPoints(List<Team> teams) {
         List<Integer> teamsPoints = getAllTeamsPoints(teams);
         Set<Integer> uniqueTeamPoints = findDuplicates(teamsPoints);
@@ -145,11 +168,12 @@ public class TeamService {
     }
 
     public Team getWinnerOfTheMatch(Match match) {
-        if(match.getGoalsScoredByTeam1() > match.getGoalsScoredByTeam2()) {
-            return teamRepository.findTeamByTeamCountry(match.getTeam1Country());
-        }
-        else if(match.getGoalsScoredByTeam1() < match.getGoalsScoredByTeam2()) {
-            return teamRepository.findTeamByTeamCountry(match.getTeam2Country());
+        if(match != null) {
+            if (match.getGoalsScoredByTeam1() > match.getGoalsScoredByTeam2()) {
+                return teamRepository.findTeamByTeamCountry(match.getTeam1Country());
+            } else if (match.getGoalsScoredByTeam1() < match.getGoalsScoredByTeam2()) {
+                return teamRepository.findTeamByTeamCountry(match.getTeam2Country());
+            }
         }
         return null;
     }

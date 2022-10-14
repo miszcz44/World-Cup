@@ -67,7 +67,7 @@ public class TeamController {
         teamService.updateTeamGoalsSuffered(team1);
         teamService.updateTeamGoalsSuffered(team2);
         if(matchService.checkIfSuchMatchIsAlreadyInBaseByCountryNames(teamCountry1, teamCountry2) == null){
-            Match match = new Match(teamCountry1, teamCountry2, goalsScoredByTeam1, goalsScoredByTeam2);
+            Match match = new Match(teamCountry1, teamCountry2, teamMatch, goalsScoredByTeam1, goalsScoredByTeam2);
             matchService.addNewMatch(match);
             teamService.setMatchInProperOrder(team1, match, teamMatch);
             teamService.setMatchInProperOrder(team2, match, teamMatch);

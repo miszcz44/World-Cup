@@ -33,6 +33,12 @@ public class Match {
 
     private String team1Country;
     private String team2Country;
+
+    @Column(
+            name = "match_day",
+            columnDefinition = "integer"
+    )
+    private Integer matchDay;
     @Column(
             name = "team1_goals_scored",
             nullable = false,
@@ -45,9 +51,11 @@ public class Match {
             columnDefinition = "integer default 0"
     )
     private Integer goalsScoredByTeam2;
-    public Match(String team1Country, String team2Country, Integer goalsScoredByTeam1, Integer goalsScoredByTeam2) {
+
+    public Match(String team1Country, String team2Country, Integer matchDay, Integer goalsScoredByTeam1, Integer goalsScoredByTeam2) {
         this.team1Country = team1Country;
         this.team2Country = team2Country;
+        this.matchDay = matchDay;
         this.goalsScoredByTeam1 = goalsScoredByTeam1;
         this.goalsScoredByTeam2 = goalsScoredByTeam2;
     }

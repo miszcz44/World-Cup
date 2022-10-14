@@ -46,4 +46,8 @@ public class MatchService {
     public Match getMatchByTeamsCountries(String teamCountry1, String teamCountry2) {
         return matchRepository.getMatchByTeamsCountries(teamCountry1, teamCountry2);
     }
+
+    public Integer getMatchDayOfGivenMatch(String teamCountry1, String teamCountry2) {
+        return matchRepository.getMatchDayOfGivenMatch(teamCountry1, teamCountry2);
+    }
 }
