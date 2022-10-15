@@ -59,8 +59,8 @@ public class TeamService {
             teams.add(teamRepository.findTeamByTeamId(id));
         }
         Integer numberOfUniqueAmountsOfPoints = getNumberOfTeamsWithTheSameAmountOfPoints(teams);
-        Integer numberOfOccurencesOfTheSameAmountOfPointsInThreeWayTie = Collections.frequency(getAllTeamsPoints(teams), teams.get(1).getTeamPoints());
-        if(numberOfUniqueAmountsOfPoints == 2 && numberOfOccurencesOfTheSameAmountOfPointsInThreeWayTie == 3) {
+        Integer numberOfOccurencesOfTheSameAmountOfPoints = Collections.frequency(getAllTeamsPoints(teams), teams.get(1).getTeamPoints());
+        if(numberOfOccurencesOfTheSameAmountOfPoints == 3) {
             List<Team> updatedTeams = sortTeamsWhenThereIsAThreeWayTie(teams);
             return updatedTeams;
         }
@@ -81,9 +81,19 @@ public class TeamService {
         Team team4 = teams.get(3);
         if(getATeamThatDoesNotParticipateInAThreeWayTie(teams) == team1){
             sortedTeams.add(team1);
-            matchService.getMatchDayOfGivenMatch(team2.getTeamCountry(), team1.getTeamCountry());
+            List<Team> sortedThreeWayTieTeams = getSortedThreeWayTieTeams(team1, team2, team3, team4);
+            sortedTeams.add(sortedThreeWayTieTeams.get(0));
+            sortedTeams.add(sortedThreeWayTieTeams.get(1));
+            sortedTeams.add(sortedThreeWayTieTeams.get(2));
         }
-        return null;
+        else{
+            List<Team> sortedThreeWayTieTeams = getSortedThreeWayTieTeams(team4, team1, team2, team3);
+            sortedTeams.add(sortedThreeWayTieTeams.get(0));
+            sortedTeams.add(sortedThreeWayTieTeams.get(1));
+            sortedTeams.add(sortedThreeWayTieTeams.get(2));
+            sortedTeams.add(team4);
+        }
+        return sortedTeams;
     }
 
     public Team getATeamThatDoesNotParticipateInAThreeWayTie(List<Team> teams) {
@@ -93,6 +103,68 @@ public class TeamService {
         else{
             return teams.get(0);
         }
+    }
+
+    public List<Team> getSortedThreeWayTieTeams(Team teamNotParticipating, Team team1, Team team2, Team team3) {
+        Integer team1MatchDay = matchService.getMatchDayOfGivenMatch(teamNotParticipating.getTeamCountry(), team1.getTeamCountry());
+        Integer team2MatchDay = matchService.getMatchDayOfGivenMatch(teamNotParticipating.getTeamCountry(), team2.getTeamCountry());
+        Integer team3MatchDay = matchService.getMatchDayOfGivenMatch(teamNotParticipating.getTeamCountry(), team3.getTeamCountry());
+        setGoalsScoredAndSufferedToZeroInGivenMatchday(team1, team1MatchDay);
+        setGoalsScoredAndSufferedToZeroInGivenMatchday(team2, team2MatchDay);
+        setGoalsScoredAndSufferedToZeroInGivenMatchday(team3, team3MatchDay);
+        List<Long> threeWayTieTeamIds = getThreeWayTieTeamIds(team1, team2, team3);
+        List<Long> sortedThreeWayTieTeamIds = teamRepository.sortTeamsWithTeamIds(threeWayTieTeamIds);
+        List<Team> sortedThreeWayTieTeams = new ArrayList<>();
+        for(Long id : sortedThreeWayTieTeamIds) {
+            sortedThreeWayTieTeams.add(teamRepository.findTeamByTeamId(id));
+        }
+        setBackGoalsScoredAndSufferedInGivenMatchday(team1, teamNotParticipating, team1MatchDay);
+        setBackGoalsScoredAndSufferedInGivenMatchday(team2, teamNotParticipating, team2MatchDay);
+        setBackGoalsScoredAndSufferedInGivenMatchday(team3, teamNotParticipating, team3MatchDay);
+        return sortedThreeWayTieTeams;
+    }
+
+    @Transactional
+    public void setGoalsScoredAndSufferedToZeroInGivenMatchday(Team team, Integer matchDay) {
+        if(matchDay == 1){
+            team.setFirstMatchTeamGoalsScored(0);
+            team.setFirstMatchTeamGoalsSuffered(0);
+        }
+        else if(matchDay == 2){
+            team.setSecondMatchTeamGoalsScored(0);
+            team.setSecondMatchTeamGoalsSuffered(0);
+        }
+        else if(matchDay == 3){
+            team.setThirdMatchTeamGoalsScored(0);
+            team.setThirdMatchTeamGoalsSuffered(0);
+        }
+        updateTeamGoalsSuffered(team);
+        updateTeamGoalsScored(team);
+    }
+
+    @Transactional
+    public void setBackGoalsScoredAndSufferedInGivenMatchday(Team team, Team teamNotParticipating, Integer matchDay) {
+        if(matchDay == 1){
+            team.setFirstMatchTeamGoalsScored(teamNotParticipating.getFirstMatchTeamGoalsSuffered());
+            team.setFirstMatchTeamGoalsSuffered(teamNotParticipating.getFirstMatchTeamGoalsScored());
+        }
+        else if(matchDay == 2){
+            team.setSecondMatchTeamGoalsScored(teamNotParticipating.getSecondMatchTeamGoalsSuffered());
+            team.setSecondMatchTeamGoalsSuffered(teamNotParticipating.getSecondMatchTeamGoalsScored());
+        }
+        else if(matchDay == 3){
+            team.setThirdMatchTeamGoalsScored(teamNotParticipating.getThirdMatchTeamGoalsSuffered());
+            team.setThirdMatchTeamGoalsSuffered(teamNotParticipating.getThirdMatchTeamGoalsScored());
+        }
+        updateTeamGoalsSuffered(team);
+        updateTeamGoalsScored(team);
+    }
+    public List<Long> getThreeWayTieTeamIds(Team team1, Team team2, Team team3) {
+        List<Long> threeWayTieTeamIds = new ArrayList<>();
+        threeWayTieTeamIds.add(team1.getTeamId());
+        threeWayTieTeamIds.add(team2.getTeamId());
+        threeWayTieTeamIds.add(team3.getTeamId());
+        return threeWayTieTeamIds;
     }
     public Integer getNumberOfTeamsWithTheSameAmountOfPoints(List<Team> teams) {
         List<Integer> teamsPoints = getAllTeamsPoints(teams);
