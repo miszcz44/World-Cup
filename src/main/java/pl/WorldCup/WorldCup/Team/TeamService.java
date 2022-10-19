@@ -1,6 +1,7 @@
 package pl.WorldCup.WorldCup.Team;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import pl.WorldCup.WorldCup.Group.GroupPhase;
 import pl.WorldCup.WorldCup.Group.GroupService;
@@ -50,11 +51,15 @@ public class TeamService {
         return team;
     }
 
+    public List<Long> sortTeamsWithTeamIds(List<Long> teamIds) {
+        return teamRepository.sortTeamsWithTeamIds(teamIds);
+    }
+
     public List<Team> getTeamsFromGivenGroup(String groupName) {
         GroupPhase group = groupService.findGroupByGroupName(groupName);
         List<Long> teamIds = teamRepository.getTeamIdsByGroupId(group.getGroupId());
         List<Team> teams = new ArrayList<>();
-        List<Long> sortedTeamIds = teamRepository.sortTeamsWithTeamIds(teamIds);
+        List<Long> sortedTeamIds = sortTeamsWithTeamIds(teamIds);
         for(Long id : sortedTeamIds) {
             teams.add(teamRepository.findTeamByTeamId(id));
         }
@@ -112,52 +117,54 @@ public class TeamService {
         setGoalsScoredAndSufferedToZeroInGivenMatchday(team1, team1MatchDay);
         setGoalsScoredAndSufferedToZeroInGivenMatchday(team2, team2MatchDay);
         setGoalsScoredAndSufferedToZeroInGivenMatchday(team3, team3MatchDay);
-        List<Long> threeWayTieTeamIds = getThreeWayTieTeamIds(team1, team2, team3);
-        List<Long> sortedThreeWayTieTeamIds = teamRepository.sortTeamsWithTeamIds(threeWayTieTeamIds);
+        List<Long> teamIds = getThreeWayTieTeamIds(team1, team2, team3);
         List<Team> sortedThreeWayTieTeams = new ArrayList<>();
+        List<Long> sortedThreeWayTieTeamIds = sortTeamsWithTeamIds(teamIds);
         for(Long id : sortedThreeWayTieTeamIds) {
             sortedThreeWayTieTeams.add(teamRepository.findTeamByTeamId(id));
         }
-        setBackGoalsScoredAndSufferedInGivenMatchday(team1, teamNotParticipating, team1MatchDay);
-        setBackGoalsScoredAndSufferedInGivenMatchday(team2, teamNotParticipating, team2MatchDay);
-        setBackGoalsScoredAndSufferedInGivenMatchday(team3, teamNotParticipating, team3MatchDay);
+        setBackGoalsScoredAndSufferedInGivenMatchday(team1, team1MatchDay, teamNotParticipating);
+        setBackGoalsScoredAndSufferedInGivenMatchday(team2, team2MatchDay, teamNotParticipating);
+        setBackGoalsScoredAndSufferedInGivenMatchday(team3, team3MatchDay, teamNotParticipating);
         return sortedThreeWayTieTeams;
     }
 
     @Transactional
     public void setGoalsScoredAndSufferedToZeroInGivenMatchday(Team team, Integer matchDay) {
         if(matchDay == 1){
-            team.setFirstMatchTeamGoalsScored(0);
-            team.setFirstMatchTeamGoalsSuffered(0);
+            teamRepository.updateGoalsScoredAndSufferedByATeam(team.getTeamId(),
+                    team.getTeamGoalsScored() - team.getFirstMatchTeamGoalsScored(),
+                    team.getTeamGoalsSuffered() - team.getFirstMatchTeamGoalsSuffered());
         }
         else if(matchDay == 2){
-            team.setSecondMatchTeamGoalsScored(0);
-            team.setSecondMatchTeamGoalsSuffered(0);
+            teamRepository.updateGoalsScoredAndSufferedByATeam(team.getTeamId(),
+                    team.getTeamGoalsScored() - team.getSecondMatchTeamGoalsScored(),
+                    team.getTeamGoalsSuffered() - team.getSecondMatchTeamGoalsSuffered());
         }
         else if(matchDay == 3){
-            team.setThirdMatchTeamGoalsScored(0);
-            team.setThirdMatchTeamGoalsSuffered(0);
+            teamRepository.updateGoalsScoredAndSufferedByATeam(team.getTeamId(),
+                    team.getTeamGoalsScored() - team.getThirdMatchTeamGoalsScored(),
+                    team.getTeamGoalsSuffered() - team.getThirdMatchTeamGoalsSuffered());
         }
-        updateTeamGoalsSuffered(team);
-        updateTeamGoalsScored(team);
     }
 
     @Transactional
-    public void setBackGoalsScoredAndSufferedInGivenMatchday(Team team, Team teamNotParticipating, Integer matchDay) {
+    public void setBackGoalsScoredAndSufferedInGivenMatchday(Team team, Integer matchDay, Team teamNotParticipating) {
         if(matchDay == 1){
-            team.setFirstMatchTeamGoalsScored(teamNotParticipating.getFirstMatchTeamGoalsSuffered());
-            team.setFirstMatchTeamGoalsSuffered(teamNotParticipating.getFirstMatchTeamGoalsScored());
+            teamRepository.updateGoalsScoredAndSufferedByATeam(team.getTeamId(),
+                    team.getTeamGoalsScored() + teamNotParticipating.getFirstMatchTeamGoalsSuffered(),
+                    team.getTeamGoalsSuffered() + teamNotParticipating.getFirstMatchTeamGoalsScored());
         }
         else if(matchDay == 2){
-            team.setSecondMatchTeamGoalsScored(teamNotParticipating.getSecondMatchTeamGoalsSuffered());
-            team.setSecondMatchTeamGoalsSuffered(teamNotParticipating.getSecondMatchTeamGoalsScored());
+            teamRepository.updateGoalsScoredAndSufferedByATeam(team.getTeamId(),
+                    team.getTeamGoalsScored() + teamNotParticipating.getSecondMatchTeamGoalsSuffered(),
+                    team.getTeamGoalsSuffered() + teamNotParticipating.getSecondMatchTeamGoalsScored());
         }
         else if(matchDay == 3){
-            team.setThirdMatchTeamGoalsScored(teamNotParticipating.getThirdMatchTeamGoalsSuffered());
-            team.setThirdMatchTeamGoalsSuffered(teamNotParticipating.getThirdMatchTeamGoalsScored());
+            teamRepository.updateGoalsScoredAndSufferedByATeam(team.getTeamId(),
+                    team.getTeamGoalsScored() + teamNotParticipating.getThirdMatchTeamGoalsSuffered(),
+                    team.getTeamGoalsSuffered() + teamNotParticipating.getThirdMatchTeamGoalsScored());
         }
-        updateTeamGoalsSuffered(team);
-        updateTeamGoalsScored(team);
     }
     public List<Long> getThreeWayTieTeamIds(Team team1, Team team2, Team team3) {
         List<Long> threeWayTieTeamIds = new ArrayList<>();
@@ -208,6 +215,8 @@ public class TeamService {
             List<Team> tmpTeams = addTeamsInCorrectOrder(team2, team3);
             sortedTeams.add(tmpTeams.get(0));
             sortedTeams.add(tmpTeams.get(1));
+            sortedTeams.add(team4);
+            return sortedTeams;
         }
         if(team3.getTeamPoints() == team4.getTeamPoints()) {
             if(sortedTeams.size() == 0) {

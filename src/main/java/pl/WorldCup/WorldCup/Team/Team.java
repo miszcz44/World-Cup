@@ -100,19 +100,19 @@ public class Team {
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer firstMatchPointsEarned = 0;
+    private Integer firstMatchPointsEarned;
     @Column(
             name = "second_match_team_points_earned",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer secondMatchPointsEarned = 0;
+    private Integer secondMatchPointsEarned;
     @Column(
             name = "third_match_team_points_earned",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer thirdMatchPointsEarned = 0;
+    private Integer thirdMatchPointsEarned;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "first_match")
     private Match firstMatchOfTheGroupStage;
