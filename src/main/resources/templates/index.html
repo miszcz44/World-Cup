@@ -44,33 +44,33 @@
         </table>
         <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="1" target="hiddenFrame">
             <input type="hidden" name="teamMatch" value="1">
-            <input type="hidden" name="team1" value="Katar">Katar <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Ekwador">Ekwador
+            <input type="hidden" name="team1" value="Katar">Katar <input type="number"  value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number1"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number2" onchange="setLocalStorageValue()"><input type="hidden" name="team2" value="Ekwador">Ekwador
         </form>
         <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="2" target="hiddenFrame">
             <input type="hidden" name="teamMatch" value="1">
-            <input type="hidden" name="team1" value="Senegal">Senegal<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Holandia">Holandia
+            <input type="hidden" name="team1" value="Senegal">Senegal<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number3" > -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number4"><input type="hidden" name="team2" value="Holandia">Holandia
         </form>
         <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="3" target="hiddenFrame">
             <input type="hidden" name="teamMatch" value="2">
-            <input type="hidden" name="team1" value="Katar">Katar <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Senegal">Senegal
+            <input type="hidden" name="team1" value="Katar">Katar <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number5"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number6"><input type="hidden" name="team2" value="Senegal">Senegal
         </form>
         <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="4" target="hiddenFrame">
             <input type="hidden" name="teamMatch" value="2">
-            <input type="hidden" name="team1" value="Holandia">Holandia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Ekwador">Ekwador
+            <input type="hidden" name="team1" value="Holandia">Holandia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number7"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number8"><input type="hidden" name="team2" value="Ekwador">Ekwador
         </form>
         <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="5" target="hiddenFrame">
             <input type="hidden" name="teamMatch" value="3">
-            <input type="hidden" name="team1" value="Ekwador">Ekwador <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Senegal">Senegal
+            <input type="hidden" name="team1" value="Ekwador">Ekwador <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number9"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number10"><input type="hidden" name="team2" value="Senegal">Senegal
         </form>
         <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="6" target="hiddenFrame">
             <input type="hidden" name="teamMatch" value="3">
-            <input type="hidden" name="team1" value="Holandia">Holandia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2"><input type="hidden" name="team2" value="Katar">Katar
+            <input type="hidden" name="team1" value="Holandia">Holandia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number11"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number12"><input type="hidden" name="team2" value="Katar">Katar
         </form>
     </div>
     <div class="d-inline-block  mx-4 py-5">
@@ -272,6 +272,114 @@
    window.location.reload(1);
 }, 1000);
 }
+</script>
+<script>
+function save_data_to_localstorage(input_id) {
+   const input_val = document.getElementById(input_id).value;
+   localStorage.setItem(input_id, input_val);
+   console.log(input_val);
+}
+
+
+number1.addEventListener("keyup", function() {
+   save_data_to_localstorage("number1");
+});
+
+number2.addEventListener("keyup", function() {
+   save_data_to_localstorage("number2")
+});
+
+number3.addEventListener("keyup", function() {
+   save_data_to_localstorage("number3")
+});
+
+number4.addEventListener("keyup", function() {
+   save_data_to_localstorage("number4")
+});
+
+number5.addEventListener("keyup", function() {
+   save_data_to_localstorage("number5")
+});
+
+number6.addEventListener("keyup", function() {
+   save_data_to_localstorage("number6")
+});
+
+number7.addEventListener("keyup", function() {
+   save_data_to_localstorage("number7")
+});
+
+number8.addEventListener("keyup", function() {
+   save_data_to_localstorage("number8")
+});
+
+number9.addEventListener("keyup", function() {
+   save_data_to_localstorage("number9")
+});
+
+number10.addEventListener("keyup", function() {
+   save_data_to_localstorage("number10")
+});
+
+number11.addEventListener("keyup", function() {
+   save_data_to_localstorage("number11")
+});
+
+number12.addEventListener("keyup", function() {
+   save_data_to_localstorage("number12")
+});
+
+function init_values() {
+   if (localStorage["number1"]) {
+      number1.value = localStorage["number1"];
+   }
+
+   if (localStorage["number2"]) {
+      number2.value = localStorage["number2"];
+   }
+
+   if (localStorage["number3"]) {
+      number3.value = localStorage["number3"];
+   }
+
+   if (localStorage["number4"]) {
+      number4.value = localStorage["number4"];
+   }
+
+   if (localStorage["number5"]) {
+      number5.value = localStorage["number5"];
+   }
+
+   if (localStorage["number6"]) {
+      number6.value = localStorage["number6"];
+   }
+
+   if (localStorage["number7"]) {
+      number7.value = localStorage["number7"];
+   }
+
+   if (localStorage["number8"]) {
+      number8.value = localStorage["number8"];
+   }
+
+   if (localStorage["number9"]) {
+      number9.value = localStorage["number9"];
+   }
+
+   if (localStorage["number10"]) {
+      number10.value = localStorage["number10"];
+   }
+
+   if (localStorage["number11"]) {
+      number11.value = localStorage["number11"];
+   }
+
+   if (localStorage["number12"]) {
+      number12.value = localStorage["number12"];
+   }
+}
+
+init_values();
 </script>
 </body>
 </html>
