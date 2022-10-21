@@ -40,13 +40,11 @@ public class AppUser implements UserDetails {
     private boolean locked;
     private boolean enabled;
 
-    public AppUser(String username, String email, String password, AppUserRole appUserRole, boolean locked, boolean enabled) {
+    public AppUser(String username, String email, String password, AppUserRole appUserRole) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.appUserRole = appUserRole;
-        this.locked = locked;
-        this.enabled = enabled;
     }
 
     @Override
