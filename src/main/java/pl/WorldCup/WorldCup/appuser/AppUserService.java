@@ -26,7 +26,7 @@ public class AppUserService implements UserDetailsService {
                 .isPresent();
 
         if(userExists) {
-            throw new IllegalStateException("już jest ten majl jak coś");
+            throw new IllegalStateException("już jest ten majl jak cośa");
         }
         String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
 
