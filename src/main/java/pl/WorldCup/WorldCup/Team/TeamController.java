@@ -36,11 +36,6 @@ public class TeamController {
         this.matchService = matchService;
     }
 
-    @GetMapping
-    public Integer getNumberOfTeams() {
-        return teamService.getNumberOfTeams();
-    }
-
     @PostMapping
     public void addNewTeam(@RequestBody List<Team> teams) {
         teamService.addNewTeams(teams);
