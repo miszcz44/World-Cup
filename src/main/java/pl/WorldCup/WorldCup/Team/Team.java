@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.WorldCup.WorldCup.Group.GroupPhase;
 import pl.WorldCup.WorldCup.Match.Match;
+import pl.WorldCup.WorldCup.User.User;
 
 import javax.persistence.*;
 
@@ -122,4 +123,7 @@ public class Team {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "third_match")
     private Match thirdMatchOfTheGroupStage;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import pl.WorldCup.WorldCup.User.User;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -14,6 +15,10 @@ import java.util.List;
 public interface TeamRepository extends JpaRepository<Team, Long> {
 
     public Team findTeamByTeamCountry(String country);
+
+    @Query(value = "INSERT INTO team ",
+            nativeQuery = true)
+    public Team addATeam(String country, User user);
 
     @Query(value = "SELECT team_id FROM group_team_mapping WHERE group_id = ?1",
             nativeQuery = true

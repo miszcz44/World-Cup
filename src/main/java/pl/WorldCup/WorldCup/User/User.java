@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.UsesSunHttpServer;
+import pl.WorldCup.WorldCup.Team.Team;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
+
+import java.util.List;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -44,15 +47,16 @@ public class User {
     private String password;
 
     @Column(
-            columnDefinition = "integer default 0",
-            nullable = false
+            columnDefinition = "integer default 0"
     )
-    private Integer points;
+    private Integer points = 0;
+
+    @OneToMany(mappedBy="user")
+    private List<Team> teams;
 
     public User(String email, String username, String password) {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.points = 0;
     }
 }
