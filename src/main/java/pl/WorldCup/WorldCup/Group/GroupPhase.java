@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.WorldCup.WorldCup.Team.Team;
+import pl.WorldCup.WorldCup.User.User;
 
 import javax.persistence.*;
 

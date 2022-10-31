@@ -9,6 +9,7 @@ import pl.WorldCup.WorldCup.User.User;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.GenerationType.SEQUENCE;
@@ -19,6 +20,8 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Team {
+
+
 
     @Id
     @SequenceGenerator(
@@ -46,74 +49,74 @@ public class Team {
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer teamPoints;
+    private Integer teamPoints = 0;
     @Column(
             name = "team_goals_scored",
             nullable = false,
             columnDefinition = "integer default 0"
     )
 
-    private Integer teamGoalsScored;
+    private Integer teamGoalsScored = 0;
     @Column(
             name = "team_goals_suffered",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer teamGoalsSuffered;
+    private Integer teamGoalsSuffered = 0;
     @Column(
             name = "first_match_goals_scored",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer firstMatchTeamGoalsScored;
+    private Integer firstMatchTeamGoalsScored = 0;
     @Column(
             name = "first_match_goals_suffered",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer firstMatchTeamGoalsSuffered;
+    private Integer firstMatchTeamGoalsSuffered = 0;
     @Column(
             name = "second_match_goals_scored",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer secondMatchTeamGoalsScored;
+    private Integer secondMatchTeamGoalsScored = 0;
     @Column(
             name = "second_match_goals_suffered",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer secondMatchTeamGoalsSuffered;
+    private Integer secondMatchTeamGoalsSuffered = 0;
     @Column(
             name = "third_match_goals_scored",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer thirdMatchTeamGoalsScored;
+    private Integer thirdMatchTeamGoalsScored = 0;
     @Column(
             name = "third_match_goals_suffered",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer thirdMatchTeamGoalsSuffered;
+    private Integer thirdMatchTeamGoalsSuffered = 0;
     @Column(
             name = "first_match_team_points_earned",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer firstMatchPointsEarned;
+    private Integer firstMatchPointsEarned = 0;
     @Column(
             name = "second_match_team_points_earned",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer secondMatchPointsEarned;
+    private Integer secondMatchPointsEarned = 0;
     @Column(
             name = "third_match_team_points_earned",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer thirdMatchPointsEarned;
+    private Integer thirdMatchPointsEarned = 0;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "first_match")
     private Match firstMatchOfTheGroupStage;

@@ -50,7 +50,7 @@
             </tr>
             </tbody>
         </table>
-        <form th:action="@{/index/{username}}" style="text-align:center;" class="mt-2" method="post" id="1" target="hiddenFrame">
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="1" target="hiddenFrame">
             <input type="hidden" name="teamMatch" value="1">
             <input type="hidden" name="team1" value="Katar">Katar <input type="number"  value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number1"> -
             <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number2" onchange="setLocalStorageValue()"><input type="hidden" name="team2" value="Ekwador">Ekwador

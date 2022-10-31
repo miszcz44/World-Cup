@@ -51,15 +51,19 @@ public class TeamService {
         return team;
     }
 
-    public List<Long> sortTeamsWithTeamIds(List<Long> teamIds) {
-        return teamRepository.sortTeamsWithTeamIds(teamIds);
+    public List<Long> sortTeamsWithTeamIds(List<Long> teamIds, Long userId) {
+        return teamRepository.sortTeamsWithTeamIds(userId, teamIds);
     }
 
-    public List<Team> getTeamsFromGivenGroup(String groupName) {
+    public List<Long> sortTeamsWithTeamIdsWithoutUser(List<Long> teamIds) {
+        return teamRepository.sortTeamsWithTeamIdsWithoutUser(teamIds);
+    }
+
+    public List<Team> getTeamsFromGivenGroup(String groupName, Long userId) {
         GroupPhase group = groupService.findGroupByGroupName(groupName);
         List<Long> teamIds = teamRepository.getTeamIdsByGroupId(group.getGroupId());
         List<Team> teams = new ArrayList<>();
-        List<Long> sortedTeamIds = sortTeamsWithTeamIds(teamIds);
+        List<Long> sortedTeamIds = sortTeamsWithTeamIds(teamIds, userId);
         for(Long id : sortedTeamIds) {
             teams.add(teamRepository.findTeamByTeamId(id));
         }
@@ -119,7 +123,7 @@ public class TeamService {
         setGoalsScoredAndSufferedToZeroInGivenMatchday(team3, team3MatchDay);
         List<Long> teamIds = getThreeWayTieTeamIds(team1, team2, team3);
         List<Team> sortedThreeWayTieTeams = new ArrayList<>();
-        List<Long> sortedThreeWayTieTeamIds = sortTeamsWithTeamIds(teamIds);
+        List<Long> sortedThreeWayTieTeamIds = sortTeamsWithTeamIdsWithoutUser(teamIds);
         for(Long id : sortedThreeWayTieTeamIds) {
             sortedThreeWayTieTeams.add(teamRepository.findTeamByTeamId(id));
         }

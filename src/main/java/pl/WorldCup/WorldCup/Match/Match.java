@@ -44,13 +44,13 @@ public class Match {
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer goalsScoredByTeam1;
+    private Integer goalsScoredByTeam1 = 0;
     @Column(
             name = "team2_goals_scored",
             nullable = false,
             columnDefinition = "integer default 0"
     )
-    private Integer goalsScoredByTeam2;
+    private Integer goalsScoredByTeam2 = 0;
 
     public Match(String team1Country, String team2Country, Integer matchDay, Integer goalsScoredByTeam1, Integer goalsScoredByTeam2) {
         this.team1Country = team1Country;

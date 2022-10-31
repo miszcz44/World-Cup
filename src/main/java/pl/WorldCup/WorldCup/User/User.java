@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.UsesSunHttpServer;
+import pl.WorldCup.WorldCup.Group.GroupPhase;
 import pl.WorldCup.WorldCup.Team.Team;
 
 import javax.persistence.*;
@@ -47,6 +48,7 @@ public class User {
     private String password;
 
     @Column(
+            nullable = false,
             columnDefinition = "integer default 0"
     )
     private Integer points = 0;

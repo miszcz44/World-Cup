@@ -1,11 +1,15 @@
 package pl.WorldCup.WorldCup.Team;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.WorldCup.WorldCup.Match.Match;
 import pl.WorldCup.WorldCup.Match.MatchService;
+import pl.WorldCup.WorldCup.User.User;
+import pl.WorldCup.WorldCup.User.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -16,24 +20,30 @@ public class TeamController {
 
     private final TeamService teamService;
     private final MatchService matchService;
+    private final UserRepository userRepository;
     @GetMapping({"/list", "/index"})
     public ModelAndView getAllTeams(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        User user = userRepository.findByUsername(username);
+        Long userId = user.getId();
         ModelAndView mav = new ModelAndView("index");
-        mav.addObject("groupATeams", teamService.getTeamsFromGivenGroup("a"));
-        mav.addObject("groupBTeams", teamService.getTeamsFromGivenGroup("b"));
-        mav.addObject("groupCTeams", teamService.getTeamsFromGivenGroup("c"));
-        mav.addObject("groupDTeams", teamService.getTeamsFromGivenGroup("d"));
-        mav.addObject("groupETeams", teamService.getTeamsFromGivenGroup("e"));
-        mav.addObject("groupFTeams", teamService.getTeamsFromGivenGroup("f"));
-        mav.addObject("groupGTeams", teamService.getTeamsFromGivenGroup("g"));
-        mav.addObject("groupHTeams", teamService.getTeamsFromGivenGroup("h"));
+        mav.addObject("groupATeams", teamService.getTeamsFromGivenGroup("a", userId));
+        mav.addObject("groupBTeams", teamService.getTeamsFromGivenGroup("b", userId));
+        mav.addObject("groupCTeams", teamService.getTeamsFromGivenGroup("c", userId));
+        mav.addObject("groupDTeams", teamService.getTeamsFromGivenGroup("d", userId));
+        mav.addObject("groupETeams", teamService.getTeamsFromGivenGroup("e", userId));
+        mav.addObject("groupFTeams", teamService.getTeamsFromGivenGroup("f", userId));
+        mav.addObject("groupGTeams", teamService.getTeamsFromGivenGroup("g", userId));
+        mav.addObject("groupHTeams", teamService.getTeamsFromGivenGroup("h", userId));
         return mav;
     }
 
     @Autowired
-    public TeamController(TeamService teamService, MatchService matchService) {
+    public TeamController(TeamService teamService, MatchService matchService, UserRepository userRepository) {
         this.teamService = teamService;
         this.matchService = matchService;
+        this.userRepository = userRepository;
     }
 
     @PostMapping

@@ -10,20 +10,28 @@ import pl.WorldCup.WorldCup.User.User;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TeamRepository extends JpaRepository<Team, Long> {
 
     public Team findTeamByTeamCountry(String country);
 
-    @Query(value = "INSERT INTO team ",
-            nativeQuery = true)
-    public Team addATeam(String country, User user);
+
 
     @Query(value = "SELECT team_id FROM group_team_mapping WHERE group_id = ?1",
             nativeQuery = true
     )
     public List<Long> getTeamIdsByGroupId(Long groupId);
+
+    @Query(value = "SELECT team_id FROM team " +
+            "WHERE team_id IN :teamIds AND user_id = :userId " +
+            "ORDER BY team_points DESC, " +
+            "(team_goals_scored - team_goals_suffered) DESC, " +
+            "team_goals_scored DESC",
+            nativeQuery = true
+    )
+    public List<Long> sortTeamsWithTeamIds(@Param("userId") Long userId, @Param("teamIds") List<Long> teamIds);
 
     @Query(value = "SELECT team_id FROM team " +
             "WHERE team_id IN :teamIds " +
@@ -32,7 +40,7 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
             "team_goals_scored DESC",
             nativeQuery = true
     )
-    public List<Long> sortTeamsWithTeamIds(@Param("teamIds") List<Long> teamIds);
+    public List<Long> sortTeamsWithTeamIdsWithoutUser(@Param("teamIds") List<Long> teamIds);
 
     public Team findTeamByTeamId(Long teamId);
 
