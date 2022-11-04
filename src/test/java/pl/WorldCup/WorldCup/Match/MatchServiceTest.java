@@ -16,10 +16,5 @@ class MatchServiceTest {
         this.matchService = matchService;
     }
 
-    @Test
-    public void addNewMatch() {
-        Match match = new Match("a","b",1,2);
-        matchRepository.save(match);
 
-    }
 }

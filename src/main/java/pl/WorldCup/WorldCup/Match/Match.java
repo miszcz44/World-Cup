@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.WorldCup.WorldCup.Team.Team;
+import pl.WorldCup.WorldCup.User.User;
 
 import javax.persistence.*;
 
@@ -52,12 +53,34 @@ public class Match {
     )
     private Integer goalsScoredByTeam2 = 0;
 
-    public Match(String team1Country, String team2Country, Integer matchDay, Integer goalsScoredByTeam1, Integer goalsScoredByTeam2) {
+    @Column(
+            name = "result_of_the_match"
+    )
+    private Integer resultOfTheMatch;
+
+    @Column(
+            name = "match_number",
+            nullable = false
+    )
+    private Integer matchNumber;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @Column(
+            name = "user_points"
+    )
+    private Integer userPoints = 0;
+
+    public Match(String team1Country, String team2Country, Integer matchDay, Integer goalsScoredByTeam1, Integer goalsScoredByTeam2, Integer resultOfTheMatch, Integer matchNumber, User user) {
         this.team1Country = team1Country;
         this.team2Country = team2Country;
         this.matchDay = matchDay;
         this.goalsScoredByTeam1 = goalsScoredByTeam1;
         this.goalsScoredByTeam2 = goalsScoredByTeam2;
+        this.resultOfTheMatch = resultOfTheMatch;
+        this.matchNumber = matchNumber;
+        this.user = user;
     }
 
     @Override

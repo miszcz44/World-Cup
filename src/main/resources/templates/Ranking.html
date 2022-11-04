@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+  <title>Title</title>
+</head>
+<body>
+<div>
+  <form th:action="@{/logout}" method="post">
+    <p>
+      Welcome <b>[[${#request.userPrincipal.principal.username}]]</b>
+    </p>
+    <input type="submit" value="Sign out">
+  </form>
+</div>
+<div>
+  <table class="table w-25" style="margin: 0 auto; font-size:24px">
+    <b><caption style="caption-side:top; text-align:center; font-size:24px;">Ranking</caption></b>
+    <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">User</th>
+      <th scope="col">Punkty</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user, iterator: ${Users}">
+      <td th:text="${iterator.index+1}" />
+      <td th:text="${user.username}" />
+      <td th:text="${user.points}" />
+    </tr>
+    </tbody>
+  </table>
+</div>
+<p class="d-inline"><b>Zasady:</b><br>
+1. You do not talk about Fajklap<br>
+2. 3 punkty za prawidłowy wynik, 1 punkt za prawidłowy rezultat<br>
+3. Nagroda dla zwycięzcy to skrzynka wódki lub nic (ja decyduje)<br>
+</p>
+</body>
+</html>

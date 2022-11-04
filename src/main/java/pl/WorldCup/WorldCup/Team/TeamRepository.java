@@ -15,7 +15,9 @@ import java.util.Optional;
 @Repository
 public interface TeamRepository extends JpaRepository<Team, Long> {
 
-    public Team findTeamByTeamCountry(String country);
+    @Query(value = "SELECT * FROM team WHERE team_country = ?1 AND user_id = ?2",
+            nativeQuery = true)
+    public Team findTeamByTeamCountry(String country, Long userId);
 
 
 

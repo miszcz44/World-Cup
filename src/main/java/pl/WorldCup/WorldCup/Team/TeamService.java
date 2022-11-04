@@ -1,12 +1,13 @@
 package pl.WorldCup.WorldCup.Team;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import pl.WorldCup.WorldCup.Group.GroupPhase;
 import pl.WorldCup.WorldCup.Group.GroupService;
 import pl.WorldCup.WorldCup.Match.Match;
 import pl.WorldCup.WorldCup.Match.MatchService;
+import pl.WorldCup.WorldCup.User.UserRepository;
+import pl.WorldCup.WorldCup.User.UserService;
 
 import javax.transaction.Transactional;
 import java.util.*;
@@ -16,12 +17,14 @@ public class TeamService {
     private final TeamRepository teamRepository;
     private final GroupService groupService;
     private final MatchService matchService;
+    private final UserService userService;
 
     @Autowired
-    public TeamService(TeamRepository teamRepository, GroupService groupService, MatchService matchService) {
+    public TeamService(TeamRepository teamRepository, GroupService groupService, MatchService matchService, UserService userService) {
         this.teamRepository = teamRepository;
         this.groupService = groupService;
         this.matchService = matchService;
+        this.userService = userService;
     }
 
     public Integer getNumberOfTeams() {
@@ -36,8 +39,8 @@ public class TeamService {
         teamRepository.saveAll(teams);
     }
 
-    public Team findTeamByCountry(String country) {
-        Team team = teamRepository.findTeamByTeamCountry(country);
+    public Team findTeamByCountry(String country, Long userId) {
+        Team team = teamRepository.findTeamByTeamCountry(country, userId);
         return team;
     }
 
@@ -255,9 +258,9 @@ public class TeamService {
     public Team getWinnerOfTheMatch(Match match) {
         if(match != null) {
             if (match.getGoalsScoredByTeam1() > match.getGoalsScoredByTeam2()) {
-                return teamRepository.findTeamByTeamCountry(match.getTeam1Country());
+                return teamRepository.findTeamByTeamCountry(match.getTeam1Country(), userService.getCurrentUserId());
             } else if (match.getGoalsScoredByTeam1() < match.getGoalsScoredByTeam2()) {
-                return teamRepository.findTeamByTeamCountry(match.getTeam2Country());
+                return teamRepository.findTeamByTeamCountry(match.getTeam2Country(), userService.getCurrentUserId());
             }
         }
         return null;
@@ -349,6 +352,7 @@ public class TeamService {
             team.setThirdMatchOfTheGroupStage(match);
         }
     }
+
 
 
 

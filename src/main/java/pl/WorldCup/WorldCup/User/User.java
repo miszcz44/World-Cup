@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.UsesSunHttpServer;
 import pl.WorldCup.WorldCup.Group.GroupPhase;
+import pl.WorldCup.WorldCup.Match.Match;
 import pl.WorldCup.WorldCup.Team.Team;
 
 import javax.persistence.*;
@@ -38,7 +39,7 @@ public class User {
     private String email;
     @Column(
             nullable = false,
-            length = 20
+            length = 50
     )
     private String username;
     @Column(
@@ -55,6 +56,9 @@ public class User {
 
     @OneToMany(mappedBy="user")
     private List<Team> teams;
+
+    @OneToMany(mappedBy="user")
+    private List<Match> matches;
 
     public User(String email, String username, String password) {
         this.email = email;
