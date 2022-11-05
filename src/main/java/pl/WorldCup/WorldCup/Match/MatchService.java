@@ -84,6 +84,9 @@ public class MatchService {
                 else if(userMatch.getResultOfTheMatch() == adminMatch.getResultOfTheMatch()) {
                     matchRepository.updateUserPoints(userMatch.getId(), 1);
                 }
+                else {
+                    matchRepository.updateUserPoints(userMatch.getId(), 0);
+                }
             }
             if(!userMatches.isEmpty()) {
                 Integer totalPoints = matchRepository.getSumOfUserPoints(user.getId());
