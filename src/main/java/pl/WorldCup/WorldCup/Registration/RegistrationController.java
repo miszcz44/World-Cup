@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import pl.WorldCup.WorldCup.Group.GroupPhase;
 import pl.WorldCup.WorldCup.Group.GroupService;
 import pl.WorldCup.WorldCup.Match.MatchService;
 import pl.WorldCup.WorldCup.Team.Team;
@@ -68,6 +69,13 @@ public class RegistrationController {
         if(username.equals("SUPERUSERADMIN")) {
             matchService.updateUserPoints();
         }
+        if(username.equals("LeFraudJames")) {
+            GroupPhase group = new GroupPhase();
+            for(int i=0; i<groups.length; i++) {
+                group.setGroupName(groups[i]);
+                groupService.addGroup(group);
+            }
+        }
         ModelAndView mav = new ModelAndView("Ranking");
         mav.addObject("Users", repository.getSortedUsers());
         return mav;
@@ -108,5 +116,14 @@ public class RegistrationController {
             }
         }
         return "register_success";
+    }
+    @GetMapping("/prank")
+    public String prank() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        if(username.equals("SUPERUSERADMIN")) {
+            return "index2";
+        }
+        return "LoggedHomePage";
     }
 }

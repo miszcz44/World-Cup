@@ -107,29 +107,41 @@
             </tr>
             </tbody>
         </table>
-        <form style="text-align:center;" class="mt-2">
-            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="7" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="7">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Anglia">Anglia <input type="number"  value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number13"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number14" onchange="setLocalStorageValue()"><input type="hidden" name="team2" value="Iran">Iran
         </form>
-        <form style="text-align:center;" class="mt-2">
-            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="8" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="8">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="USA">USA<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number15" > -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number16"><input type="hidden" name="team2" value="Walia">Walia
         </form>
-        <form style="text-align:center;" class="mt-2">
-            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="9" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="9">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Walia">Walia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number17"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number18"><input type="hidden" name="team2" value="Iran">Iran
         </form>
-        <form style="text-align:center;" class="mt-2">
-            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="10" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="10">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Anglia">Anglia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number19"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number20"><input type="hidden" name="team2" value="USA">USA
         </form>
-        <form style="text-align:center;" class="mt-2">
-            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="11" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="11">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Iran">Iran <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number21"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number22"><input type="hidden" name="team2" value="USA">USA
         </form>
-        <form style="text-align:center;" class="mt-2">
-            Katar<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;"> -
-            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;">Ekwador
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="12" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="12">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Anglia">Anglia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number23"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number24"><input type="hidden" name="team2" value="Walia">Walia
         </form>
     </div>
     <div class="d-inline-block mx-4  py-5">
@@ -152,6 +164,42 @@
             </tr>
             </tbody>
         </table>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="13" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="13">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Argentyna">Argentyna<input type="number"  value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number25"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number26" onchange="setLocalStorageValue()"><input type="hidden" name="team2" value="Arabia Saudyjska">Arabia
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="14" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="14">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Meksyk">Meksyk<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number27" > -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number28"><input type="hidden" name="team2" value="Polska">Polska
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="15" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="15">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Polska">Polska <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number29"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number30"><input type="hidden" name="team2" value="Arabia Saudyjska">Arabia
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="16" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="16">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Argentyna">Argentyna <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number31"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number32"><input type="hidden" name="team2" value="Meksyk">Meksyk
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="17" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="17">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Arabia Saudyjska">Arabia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number33"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number34"><input type="hidden" name="team2" value="Meksyk">Meksyk
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="18" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="18">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Argentyna">Argentyna <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number35"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number36"><input type="hidden" name="team2" value="Polska">Polska
+        </form>
     </div>
     <div class="d-inline-block  mx-4 py-5">
         <table class="table w-25">
@@ -173,6 +221,42 @@
             </tr>
             </tbody>
         </table>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="19" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="19">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Dania">Dania<input type="number"  value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number37"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number38" onchange="setLocalStorageValue()"><input type="hidden" name="team2" value="Tunezja">Tunezja
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="20" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="20">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Francja">Francja<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number39" > -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number40"><input type="hidden" name="team2" value="Australia">Australia
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="21" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="21">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Tunezja">Tunezja <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number41"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number42"><input type="hidden" name="team2" value="Australia">Australia
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="22" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="22">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Francja">Francja <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number43"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number44"><input type="hidden" name="team2" value="Dania">Dania
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="23" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="23">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Tunezja">Tunezja <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number45"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number46"><input type="hidden" name="team2" value="Francja">Francja
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="24" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="24">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Australia">Australia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number47"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number48"><input type="hidden" name="team2" value="Dania">Dania
+        </form>
     </div>
 </div>
 <div class="my-1">
@@ -196,6 +280,42 @@
             </tr>
             </tbody>
         </table>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="25" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="25">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Niemcy">Niemcy<input type="number"  value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number49"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number50" onchange="setLocalStorageValue()"><input type="hidden" name="team2" value="Japonia">Japonia
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="26" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="26">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Hiszpania">Hiszpania<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number51" > -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number52"><input type="hidden" name="team2" value="Kostaryka">Kostaryka
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="27" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="27">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Japonia">Japonia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number53"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number54"><input type="hidden" name="team2" value="Kostaryka">Kostaryka
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="28" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="28">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Hiszpania">Hiszpania <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number55"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number56"><input type="hidden" name="team2" value="Niemcy">Niemcy
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="29" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="29">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Kostaryka">Kostaryka <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number57"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number58"><input type="hidden" name="team2" value="Niemcy">Niemcy
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="30" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="30">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Japonia">Japonia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number59"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number60"><input type="hidden" name="team2" value="Hiszpania">Hiszpania
+        </form>
     </div>
     <div class="d-inline-block mx-4  py-5">
         <table class="table w-25">
@@ -217,6 +337,42 @@
             </tr>
             </tbody>
         </table>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="31" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="31">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Maroko">Maroko<input type="number"  value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number61"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number62" onchange="setLocalStorageValue()"><input type="hidden" name="team2" value="Chorwacja">Chorwacja
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="32" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="32">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Belgia">Belgia<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number63" > -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number64"><input type="hidden" name="team2" value="Kanada">Kanada
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="33" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="33">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Belgia">Belgia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number65"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number66"><input type="hidden" name="team2" value="Maroko">Maroko
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="34" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="34">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Chorwacja">Chorwacja <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number67"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number68"><input type="hidden" name="team2" value="Kanada">Kanada
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="35" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="35">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Kanada">Kanada <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number69"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number70"><input type="hidden" name="team2" value="Maroko">Maroko
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="36" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="36">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Chorwacja">Chorwacja <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number71"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number72"><input type="hidden" name="team2" value="Belgia">Belgia
+        </form>
     </div>
     <div class="d-inline-block mx-4  py-5">
         <table class="table w-25">
@@ -238,6 +394,42 @@
             </tr>
             </tbody>
         </table>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="37" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="37">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Szwajcaria">Szwajcaria<input type="number"  value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number73"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number74" onchange="setLocalStorageValue()"><input type="hidden" name="team2" value="Kamerun">Kamerun
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="38" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="38">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Brazylia">Brazylia<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number75" > -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number76"><input type="hidden" name="team2" value="Serbia">Serbia
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="39" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="39">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Kamerun">Kamerun <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number77"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number78"><input type="hidden" name="team2" value="Serbia">Serbia
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="40" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="40">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Brazylia">Brazylia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number79"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number80"><input type="hidden" name="team2" value="Szwajcaria">Szwajcaria
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="41" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="41">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Kamerun">Kamerun <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number81"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number82"><input type="hidden" name="team2" value="Brazylia">Brazylia
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="42" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="42">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Serbia">Serbia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number83"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number84"><input type="hidden" name="team2" value="Szwajcaria">Szwajcaria
+        </form>
     </div>
     <div class="d-inline-block mx-4  py-5">
         <table class="table w-25">
@@ -259,6 +451,42 @@
             </tr>
             </tbody>
         </table>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="43" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="43">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Urugwaj">Urugwaj<input type="number"  value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number85"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number86" onchange="setLocalStorageValue()"><input type="hidden" name="team2" value="Korea Południowa">Korea
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="44" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="44">
+            <input type="hidden" name="teamMatch" value="1">
+            <input type="hidden" name="team1" value="Portugalia">Portugalia<input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number87" > -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number88"><input type="hidden" name="team2" value="Ghana">Ghana
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="45" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="45">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Korea Południowa">Korea <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number89"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number90"><input type="hidden" name="team2" value="Ghana">Ghana
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="46" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="46">
+            <input type="hidden" name="teamMatch" value="2">
+            <input type="hidden" name="team1" value="Portugalia">Portugalia <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number91"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number92"><input type="hidden" name="team2" value="Urugwaj">Urugwaj
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="47" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="47">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Korea Południowa">Korea <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number93"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number94"><input type="hidden" name="team2" value="Portugalia">Portugalia
+        </form>
+        <form th:action="@{/index}" style="text-align:center;" class="mt-2" method="post" id="48" target="hiddenFrame">
+            <input type="hidden" name="matchNumber" value="48">
+            <input type="hidden" name="teamMatch" value="3">
+            <input type="hidden" name="team1" value="Ghana">Ghana <input type="number" inputmode="numeric" value="0" class= "ml-2" style="width:20px; text-align:center;" name="goalsScoredByTeam1" id="number95"> -
+            <input type="number" inputmode="numeric" value="0" class= "mr-2" style="width:20px; text-align:center;" name="goalsScoredByTeam2" id="number96"><input type="hidden" name="team2" value="Urugwaj">Urugwaj
+        </form>
     </div>
     <iframe name="hiddenFrame" class="hide"></iframe>
     <div style="text-align:center;">
@@ -277,14 +505,56 @@
 <script type="text/javascript">
     submitForms = function(){
         setTimeout(function(){ document.getElementById("1").submit();}, 10);
-        setTimeout(function(){ document.getElementById("2").submit();}, 60);
-        setTimeout(function(){ document.getElementById("3").submit();}, 110);
-        setTimeout(function(){ document.getElementById("4").submit();}, 160);
-        setTimeout(function(){ document.getElementById("5").submit();}, 210);
-        setTimeout(function(){ document.getElementById("6").submit();}, 260);
+        setTimeout(function(){ document.getElementById("2").submit();}, 110);
+        setTimeout(function(){ document.getElementById("3").submit();}, 210);
+        setTimeout(function(){ document.getElementById("4").submit();}, 310);
+        setTimeout(function(){ document.getElementById("5").submit();}, 410);
+        setTimeout(function(){ document.getElementById("6").submit();}, 510);
+        setTimeout(function(){ document.getElementById("7").submit();}, 610);
+        setTimeout(function(){ document.getElementById("8").submit();}, 710);
+        setTimeout(function(){ document.getElementById("9").submit();}, 810);
+        setTimeout(function(){ document.getElementById("10").submit();}, 910);
+        setTimeout(function(){ document.getElementById("11").submit();}, 1010);
+        setTimeout(function(){ document.getElementById("12").submit();}, 1110);
+        setTimeout(function(){ document.getElementById("13").submit();}, 1210);
+        setTimeout(function(){ document.getElementById("14").submit();}, 1310);
+        setTimeout(function(){ document.getElementById("15").submit();}, 1410);
+        setTimeout(function(){ document.getElementById("16").submit();}, 1510);
+        setTimeout(function(){ document.getElementById("17").submit();}, 1610);
+        setTimeout(function(){ document.getElementById("18").submit();}, 1710);
+        setTimeout(function(){ document.getElementById("19").submit();}, 1810);
+        setTimeout(function(){ document.getElementById("20").submit();}, 1910);
+        setTimeout(function(){ document.getElementById("21").submit();}, 2010);
+        setTimeout(function(){ document.getElementById("22").submit();}, 2110);
+        setTimeout(function(){ document.getElementById("23").submit();}, 2210);
+        setTimeout(function(){ document.getElementById("24").submit();}, 2310);
+        setTimeout(function(){ document.getElementById("25").submit();}, 2410);
+        setTimeout(function(){ document.getElementById("26").submit();}, 2510);
+        setTimeout(function(){ document.getElementById("27").submit();}, 2610);
+        setTimeout(function(){ document.getElementById("28").submit();}, 2710);
+        setTimeout(function(){ document.getElementById("29").submit();}, 2810);
+        setTimeout(function(){ document.getElementById("30").submit();}, 2910);
+        setTimeout(function(){ document.getElementById("31").submit();}, 3010);
+        setTimeout(function(){ document.getElementById("32").submit();}, 3110);
+        setTimeout(function(){ document.getElementById("33").submit();}, 3210);
+        setTimeout(function(){ document.getElementById("34").submit();}, 3310);
+        setTimeout(function(){ document.getElementById("35").submit();}, 3410);
+        setTimeout(function(){ document.getElementById("36").submit();}, 3510);
+        setTimeout(function(){ document.getElementById("37").submit();}, 3610);
+        setTimeout(function(){ document.getElementById("38").submit();}, 3710);
+        setTimeout(function(){ document.getElementById("39").submit();}, 3810);
+        setTimeout(function(){ document.getElementById("40").submit();}, 3910);
+        setTimeout(function(){ document.getElementById("41").submit();}, 4010);
+        setTimeout(function(){ document.getElementById("42").submit();}, 4110);
+        setTimeout(function(){ document.getElementById("43").submit();}, 4210);
+        setTimeout(function(){ document.getElementById("44").submit();}, 4310);
+        setTimeout(function(){ document.getElementById("45").submit();}, 4410);
+        setTimeout(function(){ document.getElementById("46").submit();}, 4510);
+        setTimeout(function(){ document.getElementById("47").submit();}, 4610);
+        setTimeout(function(){ document.getElementById("48").submit();}, 4710);
         setTimeout(function(){
    window.location.reload(1);
-}, 1000);
+}, 5000);
 }
 </script>
 <script>
@@ -343,6 +613,344 @@ number12.addEventListener("keyup", function() {
    save_data_to_localstorage("number12")
 });
 
+number13.addEventListener("keyup", function() {
+   save_data_to_localstorage("number13")
+});
+
+number14.addEventListener("keyup", function() {
+   save_data_to_localstorage("number14")
+});
+
+number15.addEventListener("keyup", function() {
+   save_data_to_localstorage("number15")
+});
+
+number16.addEventListener("keyup", function() {
+   save_data_to_localstorage("number16")
+});
+
+number17.addEventListener("keyup", function() {
+   save_data_to_localstorage("number17")
+});
+
+number18.addEventListener("keyup", function() {
+   save_data_to_localstorage("number18")
+});
+
+number19.addEventListener("keyup", function() {
+   save_data_to_localstorage("number19")
+});
+
+number20.addEventListener("keyup", function() {
+   save_data_to_localstorage("number20")
+});
+
+number21.addEventListener("keyup", function() {
+   save_data_to_localstorage("number21")
+});
+
+number22.addEventListener("keyup", function() {
+   save_data_to_localstorage("number22")
+});
+
+number23.addEventListener("keyup", function() {
+   save_data_to_localstorage("number23")
+});
+
+number24.addEventListener("keyup", function() {
+   save_data_to_localstorage("number24")
+});
+
+number25.addEventListener("keyup", function() {
+   save_data_to_localstorage("number25")
+});
+
+number26.addEventListener("keyup", function() {
+   save_data_to_localstorage("number26")
+});
+
+number27.addEventListener("keyup", function() {
+   save_data_to_localstorage("number27")
+});
+
+number28.addEventListener("keyup", function() {
+   save_data_to_localstorage("number28")
+});
+
+number29.addEventListener("keyup", function() {
+   save_data_to_localstorage("number29")
+});
+
+number30.addEventListener("keyup", function() {
+   save_data_to_localstorage("number30")
+});
+
+number31.addEventListener("keyup", function() {
+   save_data_to_localstorage("number31")
+});
+
+number32.addEventListener("keyup", function() {
+   save_data_to_localstorage("number32")
+});
+
+number33.addEventListener("keyup", function() {
+   save_data_to_localstorage("number33")
+});
+
+number34.addEventListener("keyup", function() {
+   save_data_to_localstorage("number34")
+});
+
+number35.addEventListener("keyup", function() {
+   save_data_to_localstorage("number35")
+});
+
+number36.addEventListener("keyup", function() {
+   save_data_to_localstorage("number36")
+});
+
+number37.addEventListener("keyup", function() {
+   save_data_to_localstorage("number37")
+});
+
+number38.addEventListener("keyup", function() {
+   save_data_to_localstorage("number38")
+});
+
+number39.addEventListener("keyup", function() {
+   save_data_to_localstorage("number39")
+});
+
+number40.addEventListener("keyup", function() {
+   save_data_to_localstorage("number40")
+});
+
+number41.addEventListener("keyup", function() {
+   save_data_to_localstorage("number41")
+});
+
+number42.addEventListener("keyup", function() {
+   save_data_to_localstorage("number42")
+});
+
+number43.addEventListener("keyup", function() {
+   save_data_to_localstorage("number43")
+});
+
+number44.addEventListener("keyup", function() {
+   save_data_to_localstorage("number44")
+});
+
+number45.addEventListener("keyup", function() {
+   save_data_to_localstorage("number45")
+});
+
+number46.addEventListener("keyup", function() {
+   save_data_to_localstorage("number46")
+});
+
+number47.addEventListener("keyup", function() {
+   save_data_to_localstorage("number47")
+});
+
+number48.addEventListener("keyup", function() {
+   save_data_to_localstorage("number48")
+});
+
+number49.addEventListener("keyup", function() {
+   save_data_to_localstorage("number49")
+});
+number50.addEventListener("keyup", function() {
+   save_data_to_localstorage("number50")
+});
+number51.addEventListener("keyup", function() {
+   save_data_to_localstorage("number51")
+});
+
+number52.addEventListener("keyup", function() {
+   save_data_to_localstorage("number52")
+});
+
+number53.addEventListener("keyup", function() {
+   save_data_to_localstorage("number53")
+});
+
+number54.addEventListener("keyup", function() {
+   save_data_to_localstorage("number54")
+});
+
+number55.addEventListener("keyup", function() {
+   save_data_to_localstorage("number55")
+});
+
+number56.addEventListener("keyup", function() {
+   save_data_to_localstorage("number56")
+});
+
+
+number57.addEventListener("keyup", function() {
+   save_data_to_localstorage("number57")
+});
+
+
+number58.addEventListener("keyup", function() {
+   save_data_to_localstorage("number58")
+});
+
+
+number59.addEventListener("keyup", function() {
+   save_data_to_localstorage("number59")
+});
+
+
+number60.addEventListener("keyup", function() {
+   save_data_to_localstorage("number60")
+});
+
+
+number61.addEventListener("keyup", function() {
+   save_data_to_localstorage("number61")
+});
+
+number62.addEventListener("keyup", function() {
+   save_data_to_localstorage("number62")
+});
+
+number63.addEventListener("keyup", function() {
+   save_data_to_localstorage("number63")
+});
+
+number64.addEventListener("keyup", function() {
+   save_data_to_localstorage("number64")
+});
+
+number65.addEventListener("keyup", function() {
+   save_data_to_localstorage("number65")
+});
+
+number66.addEventListener("keyup", function() {
+   save_data_to_localstorage("number66")
+});
+
+number67.addEventListener("keyup", function() {
+   save_data_to_localstorage("number67")
+});
+
+number68.addEventListener("keyup", function() {
+   save_data_to_localstorage("number68")
+});
+
+number69.addEventListener("keyup", function() {
+   save_data_to_localstorage("number69")
+});
+
+number70.addEventListener("keyup", function() {
+   save_data_to_localstorage("number70")
+});
+
+number71.addEventListener("keyup", function() {
+   save_data_to_localstorage("number71")
+});
+
+number72.addEventListener("keyup", function() {
+   save_data_to_localstorage("number72")
+});
+
+number73.addEventListener("keyup", function() {
+   save_data_to_localstorage("number73")
+});
+
+number74.addEventListener("keyup", function() {
+   save_data_to_localstorage("number74")
+});
+
+number75.addEventListener("keyup", function() {
+   save_data_to_localstorage("number75")
+});
+
+number76.addEventListener("keyup", function() {
+   save_data_to_localstorage("number76")
+});
+
+number77.addEventListener("keyup", function() {
+   save_data_to_localstorage("number77")
+});
+
+number78.addEventListener("keyup", function() {
+   save_data_to_localstorage("number78")
+});
+
+number79.addEventListener("keyup", function() {
+   save_data_to_localstorage("number79")
+});
+
+number80.addEventListener("keyup", function() {
+   save_data_to_localstorage("number80")
+});
+
+number81.addEventListener("keyup", function() {
+   save_data_to_localstorage("number81")
+});
+
+number82.addEventListener("keyup", function() {
+   save_data_to_localstorage("number82")
+});
+
+number83.addEventListener("keyup", function() {
+   save_data_to_localstorage("number83")
+});
+
+number84.addEventListener("keyup", function() {
+   save_data_to_localstorage("number84")
+});
+
+number85.addEventListener("keyup", function() {
+   save_data_to_localstorage("number85")
+});
+
+number86.addEventListener("keyup", function() {
+   save_data_to_localstorage("number86")
+});
+
+number87.addEventListener("keyup", function() {
+   save_data_to_localstorage("number87")
+});
+
+number88.addEventListener("keyup", function() {
+   save_data_to_localstorage("number88")
+});
+
+number89.addEventListener("keyup", function() {
+   save_data_to_localstorage("number89")
+});
+
+number90.addEventListener("keyup", function() {
+   save_data_to_localstorage("number90")
+});
+
+number91.addEventListener("keyup", function() {
+   save_data_to_localstorage("number91")
+});
+
+number92.addEventListener("keyup", function() {
+   save_data_to_localstorage("number92")
+});
+
+number93.addEventListener("keyup", function() {
+   save_data_to_localstorage("number93")
+});
+
+number94.addEventListener("keyup", function() {
+   save_data_to_localstorage("number94")
+});
+
+number95.addEventListener("keyup", function() {
+   save_data_to_localstorage("number95")
+});
+
+number96.addEventListener("keyup", function() {
+   save_data_to_localstorage("number96")
+});
 function init_values() {
    if (localStorage["number1"]) {
       number1.value = localStorage["number1"];
@@ -391,7 +999,344 @@ function init_values() {
    if (localStorage["number12"]) {
       number12.value = localStorage["number12"];
    }
+
+   if (localStorage["number13"]) {
+      number13.value = localStorage["number13"];
+   }
+
+   if (localStorage["number14"]) {
+      number14.value = localStorage["number14"];
+   }
+
+   if (localStorage["number15"]) {
+      number15.value = localStorage["number15"];
+   }
+
+   if (localStorage["number16"]) {
+      number16.value = localStorage["number16"];
+   }
+
+   if (localStorage["number17"]) {
+      number17.value = localStorage["number17"];
+   }
+
+   if (localStorage["number18"]) {
+      number18.value = localStorage["number18"];
+   }
+
+   if (localStorage["number19"]) {
+      number19.value = localStorage["number19"];
+   }
+
+   if (localStorage["number20"]) {
+      number20.value = localStorage["number20"];
+   }
+
+   if (localStorage["number21"]) {
+      number21.value = localStorage["number21"];
+   }
+
+   if (localStorage["number22"]) {
+      number22.value = localStorage["number22"];
+   }
+
+   if (localStorage["number23"]) {
+      number23.value = localStorage["number23"];
+   }
+
+   if (localStorage["number24"]) {
+      number24.value = localStorage["number24"];
+   }
+
+   if (localStorage["number25"]) {
+      number25.value = localStorage["number25"];
+   }
+
+   if (localStorage["number26"]) {
+      number26.value = localStorage["number26"];
+   }
+
+   if (localStorage["number27"]) {
+      number27.value = localStorage["number27"];
+   }
+
+   if (localStorage["number28"]) {
+      number28.value = localStorage["number28"];
+   }
+
+   if (localStorage["number29"]) {
+      number29.value = localStorage["number29"];
+   }
+
+   if (localStorage["number30"]) {
+      number30.value = localStorage["number30"];
+   }
+
+   if (localStorage["number31"]) {
+      number31.value = localStorage["number31"];
+   }
+
+   if (localStorage["number32"]) {
+      number32.value = localStorage["number32"];
+   }
+
+   if (localStorage["number33"]) {
+      number33.value = localStorage["number33"];
+   }
+
+   if (localStorage["number34"]) {
+      number34.value = localStorage["number34"];
+   }
+
+   if (localStorage["number35"]) {
+      number35.value = localStorage["number35"];
+   }
+
+   if (localStorage["number36"]) {
+      number36.value = localStorage["number36"];
+   }
+
+   if (localStorage["number37"]) {
+      number37.value = localStorage["number37"];
+   }
+
+   if (localStorage["number38"]) {
+      number38.value = localStorage["number38"];
+   }
+
+   if (localStorage["number39"]) {
+      number39.value = localStorage["number39"];
+   }
+
+   if (localStorage["number40"]) {
+      number40.value = localStorage["number40"];
+   }
+
+   if (localStorage["number41"]) {
+      number41.value = localStorage["number41"];
+   }
+
+   if (localStorage["number42"]) {
+      number42.value = localStorage["number42"];
+   }
+
+   if (localStorage["number43"]) {
+      number43.value = localStorage["number43"];
+   }
+
+   if (localStorage["number44"]) {
+      number44.value = localStorage["number44"];
+   }
+   if (localStorage["number45"]) {
+      number45.value = localStorage["number45"];
+   }
+
+   if (localStorage["number46"]) {
+      number46.value = localStorage["number46"];
+   }
+
+   if (localStorage["number47"]) {
+      number47.value = localStorage["number47"];
+   }
+
+   if (localStorage["number48"]) {
+      number48.value = localStorage["number48"];
+   }
+
+   if (localStorage["number49"]) {
+      number49.value = localStorage["number49"];
+   }
+
+   if (localStorage["number50"]) {
+      number50.value = localStorage["number50"];
+   }
+
+   if (localStorage["number51"]) {
+      number51.value = localStorage["number51"];
+   }
+
+   if (localStorage["number52"]) {
+      number52.value = localStorage["number52"];
+   }
+
+   if (localStorage["number53"]) {
+      number53.value = localStorage["number53"];
+   }
+
+   if (localStorage["number54"]) {
+      number54.value = localStorage["number54"];
+   }
+
+   if (localStorage["number55"]) {
+      number55.value = localStorage["number55"];
+   }
+
+   if (localStorage["number56"]) {
+      number56.value = localStorage["number56"];
+   }
+
+   if (localStorage["number57"]) {
+      number57.value = localStorage["number57"];
+   }
+
+   if (localStorage["number58"]) {
+      number58.value = localStorage["number58"];
+   }
+
+   if (localStorage["number59"]) {
+      number59.value = localStorage["number59"];
+   }
+
+   if (localStorage["number60"]) {
+      number60.value = localStorage["number60"];
+   }
+
+   if (localStorage["number61"]) {
+      number61.value = localStorage["number61"];
+   }
+
+   if (localStorage["number62"]) {
+      number62.value = localStorage["number62"];
+   }
+
+   if (localStorage["number63"]) {
+      number63.value = localStorage["number63"];
+   }
+
+   if (localStorage["number64"]) {
+      number64.value = localStorage["number64"];
+   }
+
+   if (localStorage["number65"]) {
+      number65.value = localStorage["number65"];
+   }
+
+   if (localStorage["number66"]) {
+      number66.value = localStorage["number66"];
+   }
+
+   if (localStorage["number67"]) {
+      number67.value = localStorage["number67"];
+   }
+
+   if (localStorage["number68"]) {
+      number68.value = localStorage["number68"];
+   }
+
+   if (localStorage["number69"]) {
+      number69.value = localStorage["number69"];
+   }
+
+   if (localStorage["number70"]) {
+      number70.value = localStorage["number70"];
+   }
+
+   if (localStorage["number71"]) {
+      number71.value = localStorage["number71"];
+   }
+
+   if (localStorage["number72"]) {
+      number72.value = localStorage["number72"];
+   }
+
+   if (localStorage["number73"]) {
+      number73.value = localStorage["number73"];
+   }
+
+   if (localStorage["number74"]) {
+      number74.value = localStorage["number74"];
+   }
+
+   if (localStorage["number75"]) {
+      number75.value = localStorage["number75"];
+   }
+
+   if (localStorage["number76"]) {
+      number76.value = localStorage["number76"];
+   }
+
+   if (localStorage["number77"]) {
+      number77.value = localStorage["number77"];
+   }
+
+   if (localStorage["number78"]) {
+      number78.value = localStorage["number78"];
+   }
+
+   if (localStorage["number79"]) {
+      number79.value = localStorage["number79"];
+   }
+
+   if (localStorage["number80"]) {
+      number80.value = localStorage["number80"];
+   }
+
+   if (localStorage["number81"]) {
+      number81.value = localStorage["number81"];
+   }
+
+   if (localStorage["number82"]) {
+      number82.value = localStorage["number82"];
+   }
+
+   if (localStorage["number83"]) {
+      number83.value = localStorage["number83"];
+   }
+
+   if (localStorage["number84"]) {
+      number84.value = localStorage["number84"];
+   }
+
+   if (localStorage["number85"]) {
+      number85.value = localStorage["number85"];
+   }
+
+   if (localStorage["number86"]) {
+      number86.value = localStorage["number86"];
+   }
+
+   if (localStorage["number87"]) {
+      number87.value = localStorage["number87"];
+   }
+
+   if (localStorage["number88"]) {
+      number88.value = localStorage["number88"];
+   }
+
+   if (localStorage["number89"]) {
+      number89.value = localStorage["number89"];
+   }
+
+   if (localStorage["number90"]) {
+      number90.value = localStorage["number90"];
+   }
+
+   if (localStorage["number91"]) {
+      number91.value = localStorage["number91"];
+   }
+
+   if (localStorage["number92"]) {
+      number92.value = localStorage["number92"];
+   }
+
+   if (localStorage["number93"]) {
+      number93.value = localStorage["number93"];
+   }
+
+   if (localStorage["number94"]) {
+      number94.value = localStorage["number94"];
+   }
+
+   if (localStorage["number95"]) {
+      number95.value = localStorage["number95"];
+   }
+
+   if (localStorage["number96"]) {
+      number96.value = localStorage["number96"];
+   }
 }
+
+
 
 init_values();
 </script>

@@ -38,4 +38,8 @@ public class GroupService {
         return group.getGroupId();
     }
 
+    public void addGroup(GroupPhase groupPhase) {
+        groupRepository.save(groupPhase);
+    }
+
 }

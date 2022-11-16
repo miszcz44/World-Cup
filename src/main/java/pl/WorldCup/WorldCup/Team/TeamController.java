@@ -37,6 +37,21 @@ public class TeamController {
         return mav;
     }
 
+    @GetMapping({"/list", "/index2"})
+    public ModelAndView getAllTeams2() {
+        Long userId = userService.getCurrentUserId();
+        ModelAndView mav = new ModelAndView("index");
+        mav.addObject("groupATeams", teamService.getTeamsFromGivenGroup("a", userId));
+        mav.addObject("groupBTeams", teamService.getTeamsFromGivenGroup("b", userId));
+        mav.addObject("groupCTeams", teamService.getTeamsFromGivenGroup("c", userId));
+        mav.addObject("groupDTeams", teamService.getTeamsFromGivenGroup("d", userId));
+        mav.addObject("groupETeams", teamService.getTeamsFromGivenGroup("e", userId));
+        mav.addObject("groupFTeams", teamService.getTeamsFromGivenGroup("f", userId));
+        mav.addObject("groupGTeams", teamService.getTeamsFromGivenGroup("g", userId));
+        mav.addObject("groupHTeams", teamService.getTeamsFromGivenGroup("h", userId));
+        return mav;
+    }
+
     @Autowired
     public TeamController(TeamService teamService, MatchService matchService, UserRepository userRepository, UserService userService) {
         this.teamService = teamService;
@@ -52,6 +67,44 @@ public class TeamController {
 
     @PostMapping("/index")
     public void getMatchInfoAndUpdateFieldsBasedOnIt(HttpServletRequest request) {
+        Integer teamMatch = Integer.valueOf(request.getParameter("teamMatch"));
+        Integer goalsScoredByTeam1 = Integer.valueOf(request.getParameter("goalsScoredByTeam1"));
+        String teamCountry1 = request.getParameter("team1");
+        Integer goalsScoredByTeam2 = Integer.valueOf(request.getParameter("goalsScoredByTeam2"));
+        String teamCountry2 = request.getParameter("team2");
+        Integer matchNumber = Integer.valueOf(request.getParameter("matchNumber"));
+        Integer resultOfTheMatch = matchService.getResultOfTheMatch(goalsScoredByTeam1, goalsScoredByTeam2);
+        Long userId = userService.getCurrentUserId();
+        Team team1 = teamService.findTeamByCountry(teamCountry1, userId);
+        Team team2 = teamService.findTeamByCountry(teamCountry2, userId);
+        teamService.updateTheTeamPointsFieldBasedOnTheOutcomeOfTheGame(team1, team2, goalsScoredByTeam1, goalsScoredByTeam2, teamMatch);
+        teamService.updateGoalsScoredByATeamInGivenMatchByCountry(team1, teamMatch, goalsScoredByTeam1);
+        teamService.updateGoalsScoredByATeamInGivenMatchByCountry(team2, teamMatch, goalsScoredByTeam2);
+        teamService.updateGoalsSufferedByATeamInGivenMatchByCountry(team1, teamMatch, goalsScoredByTeam2);
+        teamService.updateGoalsSufferedByATeamInGivenMatchByCountry(team2, teamMatch, goalsScoredByTeam1);
+        teamService.updateTeamPoints(team1);
+        teamService.updateTeamPoints(team2);
+        teamService.updateTeamGoalsScored(team1);
+        teamService.updateTeamGoalsScored(team2);
+        teamService.updateTeamGoalsSuffered(team1);
+        teamService.updateTeamGoalsSuffered(team2);
+        if(matchService.checkIfSuchMatchIsAlreadyInBaseByCountryNames(teamCountry1, teamCountry2) == null){
+            Match match = new Match(teamCountry1, teamCountry2, teamMatch, goalsScoredByTeam1, goalsScoredByTeam2, resultOfTheMatch, matchNumber, userService.findUserById(userId));
+            matchService.addNewMatch(match);
+            teamService.setMatchInProperOrder(team1, match, teamMatch);
+            teamService.setMatchInProperOrder(team2, match, teamMatch);
+        }
+        else{
+            Match match = matchService.checkIfSuchMatchIsAlreadyInBaseByCountryNames(teamCountry1, teamCountry2);
+            matchService.updateTheResultOfTheMatch(match, goalsScoredByTeam1, goalsScoredByTeam2, resultOfTheMatch);
+            teamService.setMatchInProperOrder(team1, match, teamMatch);
+            teamService.setMatchInProperOrder(team2, match, teamMatch);
+        }
+
+    }
+
+    @PostMapping("/index2")
+    public void getMatchInfoAndUpdateFieldsBasedOnIt2(HttpServletRequest request) {
         Integer teamMatch = Integer.valueOf(request.getParameter("teamMatch"));
         Integer goalsScoredByTeam1 = Integer.valueOf(request.getParameter("goalsScoredByTeam1"));
         String teamCountry1 = request.getParameter("team1");

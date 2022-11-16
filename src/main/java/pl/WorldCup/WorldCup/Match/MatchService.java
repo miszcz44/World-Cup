@@ -73,24 +73,26 @@ public class MatchService {
         List<User> users = userService.getAllUsers();
         for(User user: users) {
             List<Match> userMatches = matchRepository.findAllUserMatchesSorted(user.getId());
-            List<Match> adminMatches = matchRepository.findAllUserMatches(userService.getAdminId());
-            for(int i=0; i<userMatches.size(); i++) {
-                Match userMatch = userMatches.get(i);
-                Match adminMatch = adminMatches.get(i);
-                if(userMatch.getGoalsScoredByTeam1() == adminMatch.getGoalsScoredByTeam1() &&
-                userMatch.getGoalsScoredByTeam2() == adminMatch.getGoalsScoredByTeam2()) {
-                    matchRepository.updateUserPoints(userMatch.getId(), 3);
-                }
-                else if(userMatch.getResultOfTheMatch() == adminMatch.getResultOfTheMatch()) {
-                    matchRepository.updateUserPoints(userMatch.getId(), 1);
-                }
-                else {
-                    matchRepository.updateUserPoints(userMatch.getId(), 0);
-                }
-            }
+            List<Match> adminMatches = matchRepository.findAllUserMatchesSorted(userService.getAdminId());
             if(!userMatches.isEmpty()) {
-                Integer totalPoints = matchRepository.getSumOfUserPoints(user.getId());
-                userService.setTotalUserPoints(user.getId(), totalPoints);
+                for(int i=0; i<userMatches.size(); i++) {
+                    Match userMatch = userMatches.get(i);
+                    Match adminMatch = adminMatches.get(i);
+                    if(userMatch.getGoalsScoredByTeam1() == adminMatch.getGoalsScoredByTeam1() &&
+                    userMatch.getGoalsScoredByTeam2() == adminMatch.getGoalsScoredByTeam2()) {
+                        matchRepository.updateUserPoints(userMatch.getId(), 3);
+                    }
+                    else if(userMatch.getResultOfTheMatch() == adminMatch.getResultOfTheMatch() &&
+                            adminMatch.getGoalsScoredByTeam1() != 7152) {
+                        matchRepository.updateUserPoints(userMatch.getId(), 1);
+                    }
+                    else {
+                        matchRepository.updateUserPoints(userMatch.getId(), 0);
+                    }
+                }
+
+                    Integer totalPoints = matchRepository.getSumOfUserPoints(user.getId());
+                    userService.setTotalUserPoints(user.getId(), totalPoints);
             }
         }
     }
