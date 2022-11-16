@@ -28,7 +28,7 @@ public class RegistrationController {
             "Polska","Meksyk","Arabia Saudyjska","Francja","Australia","Dania","Tunezja","Hiszpania","Kostaryka","Niemcy",
             "Japonia","Belgia","Kanada","Maroko","Chorwacja","Brazylia","Serbia","Szwajcaria","Kamerun","Portugalia","Ghana",
             "Urugwaj","Korea Południowa"};
-    static String[] groups = {"a","b","c","d","e","f","g"};
+    static String[] groups = {"a","b","c","d","e","f","g","h"};
 
     @Autowired
     private final UserRepository repository;
