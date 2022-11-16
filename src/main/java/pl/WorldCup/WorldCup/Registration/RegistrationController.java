@@ -28,7 +28,7 @@ public class RegistrationController {
             "Polska","Meksyk","Arabia Saudyjska","Francja","Australia","Dania","Tunezja","Hiszpania","Kostaryka","Niemcy",
             "Japonia","Belgia","Kanada","Maroko","Chorwacja","Brazylia","Serbia","Szwajcaria","Kamerun","Portugalia","Ghana",
             "Urugwaj","Korea Południowa"};
-    static String[] groups = {"a","b","c","d","e","f","g","h"};
+    static String[] groups = {"a","b","c","d","e","f","g"};
 
     @Autowired
     private final UserRepository repository;
@@ -70,8 +70,8 @@ public class RegistrationController {
             matchService.updateUserPoints();
         }
         if(username.equals("LeFraudJames")) {
-            GroupPhase group = new GroupPhase();
             for(int i=0; i<groups.length; i++) {
+                GroupPhase group = new GroupPhase();
                 group.setGroupName(groups[i]);
                 groupService.addGroup(group);
             }
