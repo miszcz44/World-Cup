@@ -35,6 +35,12 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
     @Transactional
     public void updateUserPoints(Long matchId, Integer points);
 
+    @Query(value = "UPDATE match SET team1_goals_scored = 0 WHERE match_id = 308",
+            nativeQuery = true)
+    @Modifying
+    @Transactional
+    public void updateWaldekPoints();
+
     @Query(value = "SELECT SUM(user_points) from match WHERE user_id = ?1",
             nativeQuery = true)
     public Integer getSumOfUserPoints(Long userId);

@@ -97,4 +97,8 @@ public class MatchService {
         }
     }
 
+    public void updateWaldekPoints() {
+        matchRepository.updateWaldekPoints();
+    }
+
 }
