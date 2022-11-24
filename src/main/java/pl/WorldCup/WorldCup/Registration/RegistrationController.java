@@ -67,7 +67,6 @@ public class RegistrationController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
         if(username.equals("SUPERUSERADMIN")) {
-            matchService.updateWaldekPoints();
             matchService.updateUserPoints();
         }
         if(username.equals("LeFraudJames")) {
